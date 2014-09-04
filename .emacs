@@ -53,6 +53,8 @@
 (setq-default indent-tabs-mode nil)
 
 (tool-bar-mode -1) ;; Hide toolbar graphics.
+(menu-bar-mode -1) ;; Hide toolbar.
+(toggle-scroll-bar -1) ;; Hide scroll bar at the right-hand side of windows.
 
 ;; Let emacs scroll at one line at a time:
 (setq scroll-step            1
