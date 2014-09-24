@@ -65,3 +65,10 @@
 ;; Don't highlight empty lines (or something like that; I forgot):
 (setq whitespace-trailing-regexp
   "\\b\\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
+  
+(defun astyle (pmin pmax)
+(interactive "r")
+(shell-command-on-region pmin pmax
+             "C:/AStyle/bin/astyle.exe --style=google --unpad-paren --add-brackets --indent=spaces=4"
+             (current-buffer) t
+             (get-buffer-create "*Astyle Errors*") t))
