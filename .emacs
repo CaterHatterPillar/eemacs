@@ -78,3 +78,10 @@
 ;; than horizontally:
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
+
+(defun kill-other-buffers ()
+ "Kill all other buffers."
+ (interactive)
+ (mapc 'kill-buffer 
+  (delq (current-buffer) 
+   (remove-if-not 'buffer-file-name (buffer-list)))))
