@@ -113,3 +113,8 @@
  (if (not filename)
 	(message "Buffer '%s' is not visiting a file!" name)
  (progn 	(copy-file filename newname 1) 	(delete-file filename) 	(set-visited-file-name newname) 	(set-buffer-modified-p nil) 	t)))) 
+
+(find-file "~/.emacs")
+
+;; Consider configuring the desktop mode.
+;; (desktop-save-mode 1) ;; Open previously open buffers when starting Emacs.
