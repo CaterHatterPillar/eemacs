@@ -50,6 +50,9 @@
 ;; Schedule the closing of buffers (default action) deemed unused at midnight:
 (require 'midnight)
 
+;; Don't prompt if buffer does not exist at switch:
+(setq confirm-nonexistent-file-or-buffer nil)
+
 ;; Candidates
 ;; ----------
 
