@@ -119,3 +119,7 @@
 
 ;; Consider configuring the desktop mode.
 ;; (desktop-save-mode 1) ;; Open previously open buffers when starting Emacs.
+
+;; Interactive buffers:
+(require 'ido)
+(ido-mode t)
