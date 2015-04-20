@@ -16,6 +16,12 @@
 (show-paren-mode 1) ;; Highlight matching parentheses.
 (setq-default indent-tabs-mode nil) ;; Use spaces instead of tabs.
 
+;; Show full filename in frame title bar:
+(setq frame-title-format
+     	'((:eval (if (buffer-file-name)
+      		(abbreviate-file-name (buffer-file-name))
+      		"%b"))))
+
 ;; Working with Emacs
 ;; ------------------
 
