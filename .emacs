@@ -129,3 +129,7 @@
 ;; Interactive buffers:
 (require 'ido)
 (ido-mode t)
+
+;; ...but don't allow IDO to automatically focus in on other frames if
+;; opening the same buffer in another frame.
+(setq ido-default-buffer-method 'selected-window)
