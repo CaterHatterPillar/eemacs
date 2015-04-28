@@ -1,3 +1,5 @@
+(setq load-path (cons "~/.emacs.d" load-path))
+
 (require 'local nil t)
 
 ;; GUI
