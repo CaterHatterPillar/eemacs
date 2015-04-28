@@ -1,5 +1,6 @@
 (setq load-path (cons "~/.emacs.d" load-path))
 
+(require 'linenum)
 (require 'local nil t)
 
 ;; GUI

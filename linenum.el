@@ -8,4 +8,4 @@
   (linum-update-current))
 (ad-activate 'forward-paragraph)
 
-(provide 'linum)
+(provide 'linenum)
