@@ -76,12 +76,6 @@
              "C:/AStyle/bin/astyle.exe --style=google --unpad-paren --add-brackets --indent=spaces=4 --close-templates"
              (current-buffer) t
              (get-buffer-create "*Astyle Errors*") t))
-             
-;; Some functions will split your window. These variable changes
-;; ensure that splits occur vertically (side-by-side windows) rather
-;; than horizontally:
-(setq split-height-threshold nil)
-(setq split-width-threshold 0)
 
 (defun kill-other-buffers ()
  "Kill all other buffers."
