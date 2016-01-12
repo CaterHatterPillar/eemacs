@@ -78,6 +78,8 @@
              (current-buffer) t
              (get-buffer-create "*Astyle Errors*") t))
 
+(require 'cl)
+
 (defun kill-other-buffers ()
  "Kill all other buffers."
  (interactive)
