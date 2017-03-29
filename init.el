@@ -10,7 +10,9 @@
 ;; Clone from https://github.com/sellout/emacs-color-theme-solarized.git
 (add-to-list 'custom-theme-load-path
              "~/.emacs.d/themes/emacs-color-theme-solarized")
-(load-theme 'solarized-dark t)
+(load-theme 'solarized t)
+(set-frame-parameter nil 'background-mode 'dark)
+(enable-theme 'solarized)
 
 (tool-bar-mode -1) ;; Hide the toolbar graphic.
 (menu-bar-mode -1) ;; Hide the menu bar.
