@@ -130,3 +130,5 @@
 
 (setq column-number-mode t) ;; Show column numbers (in bottom bar).
 
+;; Avoid fontifying the Simics test.log buffer
+(setq font-lock-global-modes '(not test-log-mode))
