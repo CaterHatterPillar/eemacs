@@ -119,8 +119,6 @@
 
 (desktop-save-mode 1)
 
-;; ...but don't allow IDO to automatically focus in on other frames if
-;; opening the same buffer in another frame.
 (setq ido-default-buffer-method 'selected-window)
 
 (setq column-number-mode t) ;; Show column numbers (in bottom bar).
