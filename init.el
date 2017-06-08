@@ -2,21 +2,37 @@
 
 (require 'linenum)
 (require 'local nil t)
+(require 'midnight)
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+(setq uniquify-after-kill-buffer-p t)
+
+(desktop-save-mode 1)
+(global-auto-revert-mode 1)
+(show-paren-mode 1)
+
+(blink-cursor-mode -1)
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
+(setq column-number-mode t) ;; Show column numbers (in bottom bar).
+(setq confirm-nonexistent-file-or-buffer nil)
+;; Avoid fontifying the Simics test.log buffer
+(setq font-lock-global-modes '(not test-log-mode))
+(setq ido-default-buffer-method 'selected-window)
+(setq inhibit-startup-message t)
+(setq-default indent-tabs-mode nil)
+
+(setq scroll-step            1
+      scroll-conservatively  10000)
 
 (add-to-list 'custom-theme-load-path
              "~/.emacs.d/themes/emacs-color-theme-solarized")
 (load-theme 'solarized t)
 (set-frame-parameter nil 'background-mode 'dark)
 (enable-theme 'solarized)
-
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(blink-cursor-mode -1)
-(setq inhibit-startup-message t)
-
-(show-paren-mode 1)
-(setq-default indent-tabs-mode nil)
 
 ;; Show full filename in frame title bar:
 (setq frame-title-format
@@ -29,19 +45,6 @@
           '(lambda ()
              (define-key c-mode-map "\C-m" 'newline-and-indent)))
              
-(setq scroll-step            1
-      scroll-conservatively  10000)
-
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-(setq uniquify-after-kill-buffer-p t)
-
-(global-auto-revert-mode 1)
-
-(require 'midnight)
-
-(setq confirm-nonexistent-file-or-buffer nil)
-
 ;; Candidates
 ;; ----------
 
@@ -101,12 +104,3 @@
  (if (not filename)
 	(message "Buffer '%s' is not visiting a file!" name)
  (progn 	(copy-file filename newname 1) 	(delete-file filename) 	(set-visited-file-name newname) 	(set-buffer-modified-p nil) 	t)))) 
-
-(desktop-save-mode 1)
-
-(setq ido-default-buffer-method 'selected-window)
-
-(setq column-number-mode t) ;; Show column numbers (in bottom bar).
-
-;; Avoid fontifying the Simics test.log buffer
-(setq font-lock-global-modes '(not test-log-mode))
