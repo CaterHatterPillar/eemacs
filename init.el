@@ -3,8 +3,6 @@
 (require 'linenum)
 (require 'local nil t)
 
-;; Use a custom dark theme (color-scheme Solarized):
-;; Clone from https://github.com/sellout/emacs-color-theme-solarized.git
 (add-to-list 'custom-theme-load-path
              "~/.emacs.d/themes/emacs-color-theme-solarized")
 (load-theme 'solarized t)
