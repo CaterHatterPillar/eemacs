@@ -17,9 +17,8 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
-(setq column-number-mode t) ;; Show column numbers (in bottom bar).
+(setq column-number-mode t)
 (setq confirm-nonexistent-file-or-buffer nil)
-;; Avoid fontifying the Simics test.log buffer
 (setq font-lock-global-modes '(not test-log-mode))
 (setq ido-default-buffer-method 'selected-window)
 (setq inhibit-startup-message t)
