@@ -3,9 +3,6 @@
 (require 'linenum)
 (require 'local nil t)
 
-;; GUI
-;; ---
-
 ;; Use a custom dark theme (color-scheme Solarized):
 ;; Clone from https://github.com/sellout/emacs-color-theme-solarized.git
 (add-to-list 'custom-theme-load-path
@@ -14,14 +11,14 @@
 (set-frame-parameter nil 'background-mode 'dark)
 (enable-theme 'solarized)
 
-(tool-bar-mode -1) ;; Hide the toolbar graphic.
-(menu-bar-mode -1) ;; Hide the menu bar.
-(toggle-scroll-bar -1) ;; Hide scroll bar at the right-hand side of windows.
-(blink-cursor-mode -1) ;; A flashing cursor is distracting. Disable it.
-(setq inhibit-startup-message t) ;; Hide Emacs welcome screen.
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(blink-cursor-mode -1)
+(setq inhibit-startup-message t)
 
-(show-paren-mode 1) ;; Highlight matching parentheses.
-(setq-default indent-tabs-mode nil) ;; Use spaces instead of tabs.
+(show-paren-mode 1)
+(setq-default indent-tabs-mode nil)
 
 ;; Show full filename in frame title bar:
 (setq frame-title-format
@@ -29,32 +26,22 @@
       		(abbreviate-file-name (buffer-file-name))
       		"%b"))))
 
-;; Working with Emacs
-;; ------------------
-
 ;; Auto-indent after newline:
 (add-hook 'c-mode-hook
           '(lambda ()
              (define-key c-mode-map "\C-m" 'newline-and-indent)))
              
-;; Let emacs scroll at one line at a time:
 (setq scroll-step            1
       scroll-conservatively  10000)
 
-;; Buffers
-;; -------
-
-;; Improve naming of buffers with the same name inside of Emacs:
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-after-kill-buffer-p t)
 
-(global-auto-revert-mode 1) ;; Automatically reload a file if modified outside of Emacs.
+(global-auto-revert-mode 1)
 
-;; Schedule the closing of buffers (default action) deemed unused at midnight:
 (require 'midnight)
 
-;; Don't prompt if buffer does not exist at switch:
 (setq confirm-nonexistent-file-or-buffer nil)
 
 ;; Candidates
