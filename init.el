@@ -25,6 +25,7 @@
 (setq font-lock-global-modes '(not test-log-mode))
 (setq ido-default-buffer-method 'selected-window)
 (setq inhibit-startup-message t)
+(setq ring-bell-function 'ignore)
 (setq-default indent-tabs-mode nil)
 
 (setq scroll-step            1
