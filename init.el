@@ -17,6 +17,8 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
+(mouse-avoidance-mode 'jump)
+
 (setq column-number-mode t)
 (setq confirm-nonexistent-file-or-buffer nil)
 (setq font-lock-global-modes '(not test-log-mode))
