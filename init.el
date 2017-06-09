@@ -18,6 +18,7 @@
 (tool-bar-mode -1)
 
 (mouse-avoidance-mode 'jump)
+(global-set-key "\C-x\C-b" 'buffer-menu)
 
 (setq column-number-mode t)
 (setq confirm-nonexistent-file-or-buffer nil)
