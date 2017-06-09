@@ -44,6 +44,27 @@
           '(lambda ()
              (define-key c-mode-map "\C-m" 'newline-and-indent)))
              
+(defun insert-file-name ()
+  "Insert the current buffer file name."
+  (interactive)
+  (insert (file-name-nondirectory
+	   (buffer-file-name
+	    (window-buffer
+	     (minibuffer-selected-window))))))
+
+(defun insert-file-directory ()
+  "Insert the current buffer directory."
+  (interactive)
+  (insert (file-name-directory
+	   (buffer-file-name
+	    (window-buffer
+	     (minibuffer-selected-window))))))
+
+(defun insert-file-path ()
+  "Insert the current buffer full path."
+  (interactive)
+  (insert (buffer-file-name (window-buffer (minibuffer-selected-window)))))
+
 ;; Candidates
 ;; ----------
 
