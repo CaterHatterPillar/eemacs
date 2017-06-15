@@ -31,6 +31,15 @@
 (setq scroll-step            1
       scroll-conservatively  10000)
 
+(setq
+   backup-by-copying t
+   backup-directory-alist
+    '(("." . "~/.emacs.d/backups"))
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)
+
 (add-to-list 'custom-theme-load-path
              "~/.emacs.d/themes/emacs-color-theme-solarized")
 (load-theme 'solarized t)
