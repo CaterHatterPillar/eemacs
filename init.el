@@ -8,6 +8,10 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-after-kill-buffer-p t)
 
+(require 'whitespace)
+(setq whitespace-style '(empty face lines-tail tabs trailing))
+(global-whitespace-mode t)
+
 (desktop-save-mode 1)
 (global-auto-revert-mode 1)
 (show-paren-mode 1)
@@ -97,10 +101,6 @@
       mac-command-modifier 'meta
       x-select-enable-clipboard t)
 
-;; Something about the highlighting of whitespace:
-(require 'whitespace)
- (setq whitespace-style '(face empty tabs lines-tail trailing))
- (global-whitespace-mode t)
 ;; Don't highlight empty lines (or something like that; I forgot):
 (setq whitespace-trailing-regexp
   "\\b\\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
