@@ -46,6 +46,10 @@
 (set-frame-parameter nil 'background-mode 'dark)
 (enable-theme 'solarized)
 
+(if (version< emacs-version "24.4")
+    (global-set-key (kbd "M-SPC") 'just-one-space)
+    (global-set-key (kbd "M-SPC") 'cycle-spacing))
+
 ;; Show full filename in frame title bar:
 (setq frame-title-format
      	'((:eval (if (buffer-file-name)
