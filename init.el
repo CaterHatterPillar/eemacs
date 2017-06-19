@@ -102,10 +102,6 @@
 (setq mac-option-modifier nil
       mac-command-modifier 'meta
       x-select-enable-clipboard t)
-
-;; Don't highlight empty lines (or something like that; I forgot):
-(setq whitespace-trailing-regexp
-  "\\b\\(\\(\t\\| \\|\xA0\\|\x8A0\\|\x920\\|\xE20\\|\xF20\\)+\\)$")
   
 (defun astyle (pmin pmax)
 (interactive "r")
