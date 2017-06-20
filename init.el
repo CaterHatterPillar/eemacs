@@ -3,6 +3,7 @@
 (require 'linenum)
 (require 'local nil t)
 (require 'midnight)
+(require 'totd)
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
