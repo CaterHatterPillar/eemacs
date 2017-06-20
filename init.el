@@ -13,7 +13,6 @@
 (setq whitespace-style '(empty face lines-tail tabs trailing))
 (global-whitespace-mode t)
 
-(desktop-save-mode 1)
 (global-auto-revert-mode 1)
 (show-paren-mode 1)
 
