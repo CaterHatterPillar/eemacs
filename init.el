@@ -16,6 +16,11 @@
 (setq whitespace-style '(empty face lines-tail tabs trailing))
 (global-whitespace-mode t)
 
+(setq savehist-file "~/.emacs.d/history")
+(setq savehist-additional-variables
+      '(compile-history kill-ring regexp-search-ring search-ring))
+(savehist-mode 1)
+
 (global-auto-revert-mode 1)
 (show-paren-mode 1)
 
