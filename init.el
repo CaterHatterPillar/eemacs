@@ -3,7 +3,6 @@
 (require 'linenum)
 (require 'local nil t)
 (require 'midnight)
-(require 'totd)
 
 (require 'on-screen)
 (on-screen-global-mode +1)
