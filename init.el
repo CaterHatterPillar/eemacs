@@ -22,6 +22,7 @@
 
 (global-auto-revert-mode 1)
 (show-paren-mode 1)
+(which-function-mode 1)
 
 (blink-cursor-mode -1)
 (menu-bar-mode -1)
