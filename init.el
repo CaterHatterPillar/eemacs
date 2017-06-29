@@ -1,5 +1,7 @@
 (setq load-path (cons "~/.emacs.d" load-path))
 
+(require 'appearance)
+
 (require 'linenum)
 (require 'local nil t)
 (require 'midnight)
@@ -24,23 +26,14 @@
 (show-paren-mode 1)
 (which-function-mode 1)
 
-(blink-cursor-mode -1)
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
-
-(mouse-avoidance-mode 'jump)
 (global-set-key "\C-x\C-b" 'buffer-menu)
 
 (windmove-default-keybindings)
 
-(setq column-number-mode t)
 (setq confirm-nonexistent-file-or-buffer nil)
 (setq font-lock-global-modes '(not test-log-mode))
 (setq ido-default-buffer-method 'selected-window)
-(setq inhibit-startup-message t)
 (setq ring-bell-function 'ignore)
-(setq x-stretch-cursor t)
 (setq-default indent-tabs-mode nil)
 
 (setq scroll-step            1
@@ -54,16 +47,6 @@
    kept-new-versions 6
    kept-old-versions 2
    version-control t)
-
-(defun load-custom-theme ()
-  (add-to-list 'custom-theme-load-path
-               "~/.emacs.d/themes/emacs-color-theme-solarized")
-  (load-theme 'solarized t)
-  (set-frame-parameter nil 'background-mode 'dark)
-  (enable-theme 'solarized))
-
-(unless (version< emacs-version "24")
-  (load-custom-theme))
 
 (if (version< emacs-version "24.4")
     (global-set-key (kbd "M-SPC") 'just-one-space)
