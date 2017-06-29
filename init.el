@@ -55,14 +55,15 @@
    kept-old-versions 2
    version-control t)
 
-(defun load-theme ()
+(defun load-custom-theme ()
   (add-to-list 'custom-theme-load-path
                "~/.emacs.d/themes/emacs-color-theme-solarized")
   (load-theme 'solarized t)
   (set-frame-parameter nil 'background-mode 'dark)
   (enable-theme 'solarized))
 
-(unless (version< emacs-version "24") (load-theme))
+(unless (version< emacs-version "24")
+  (load-custom-theme))
 
 (if (version< emacs-version "24.4")
     (global-set-key (kbd "M-SPC") 'just-one-space)
