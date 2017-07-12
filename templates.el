@@ -19,10 +19,14 @@
       (make-directory project))
 
     (let ((main_c (concat (file-name-as-directory project)
-                          (format "%s.c" name))))
+                          (format "%s.c" name)))
+          (indentation_width (make-string (indentation-width-c) ?\ )))
       (with-temp-buffer
-        (insert (concat "int main(int argc, char* argv[]) {\n"
-                        (make-string (indentation-width-c) ?\ )
+        (insert (concat "#include <stdio.h>\n\n"
+                        "int main(int argc, char* argv[]) {\n"
+                        indentation_width
+                        (format "printf(\"%s\\n\");\n" name)
+                        indentation_width
                         "return 0;\n}\n"))
         (write-file main_c))
       (find-file main_c))
