@@ -27,6 +27,8 @@
 (which-function-mode 1)
 
 (global-set-key "\C-x\C-b" 'buffer-menu)
+(global-set-key (kbd "C-,") 'previous-error)
+(global-set-key (kbd "C-.") 'next-error)
 
 (windmove-default-keybindings)
 
