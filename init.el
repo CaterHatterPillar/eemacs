@@ -24,6 +24,7 @@
 
 (global-auto-revert-mode 1)
 (show-paren-mode 1)
+(winner-mode 1)
 (which-function-mode 1)
 
 (global-set-key "\C-x\C-b" 'buffer-menu)
