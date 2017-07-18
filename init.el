@@ -1,9 +1,9 @@
 (setq load-path (cons "~/.emacs.d" load-path))
 
 (require 'appearance)
-
 (require 'linenum)
 (require 'local nil t)
+
 (require 'midnight)
 
 (require 'on-screen)
