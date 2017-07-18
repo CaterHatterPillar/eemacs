@@ -24,8 +24,7 @@
 
     (with-temp-buffer
       (insert (format "%s:\n" name))
-      (write-file (concat (file-name-as-directory project) "Makefile"))))
-)
+      (write-file (concat (file-name-as-directory project) "Makefile")))))
 
 (defun instantiate-template-c (name directory)
   "Create a minimal C program and Makefile"
