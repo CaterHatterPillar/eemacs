@@ -110,13 +110,6 @@
 
 (require 'cl)
 
-(defun kill-other-buffers ()
- "Kill all other buffers."
- (interactive)
- (mapc 'kill-buffer 
-  (delq (current-buffer) 
-   (remove-if-not 'buffer-file-name (buffer-list)))))
-
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
         '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
