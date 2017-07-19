@@ -100,13 +100,6 @@
 (setq mac-option-modifier nil
       mac-command-modifier 'meta
       x-select-enable-clipboard t)
-  
-(defun astyle (pmin pmax)
-(interactive "r")
-(shell-command-on-region pmin pmax
-             "C:/AStyle/bin/astyle.exe --style=google --unpad-paren --add-brackets --indent=spaces=4 --close-templates"
-             (current-buffer) t
-             (get-buffer-create "*Astyle Errors*") t))
 
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
