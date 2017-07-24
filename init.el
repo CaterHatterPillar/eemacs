@@ -55,6 +55,8 @@
     (global-set-key (kbd "M-SPC") 'just-one-space)
     (global-set-key (kbd "M-SPC") 'cycle-spacing))
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Show full filename in frame title bar:
 (setq frame-title-format
      	'((:eval (if (buffer-file-name)
