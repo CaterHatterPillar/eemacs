@@ -1,4 +1,4 @@
-(global-linum-mode t)
+(add-hook 'prog-mode-hook 'linum-mode)
 
 (defadvice forward-paragraph (after forward-paragraph-linum-update)
   "Perform (linum-update-current) after jumping forward one
