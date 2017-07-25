@@ -30,7 +30,9 @@
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
 (global-set-key (kbd "C-,") 'previous-error)
 (global-set-key (kbd "C-.") 'next-error)
+
 (global-set-key (kbd "<f5>") 'revert-buffer)
+(global-set-key (kbd "<f6>") 'recompile)
 
 (windmove-default-keybindings)
 
