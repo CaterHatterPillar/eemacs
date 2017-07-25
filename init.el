@@ -25,7 +25,17 @@
 (global-auto-revert-mode 1)
 (show-paren-mode 1)
 (winner-mode 1)
-(which-function-mode 1)
+
+(setq semantic-default-submodes
+      '(global-semantic-idle-scheduler-mode
+        global-semanticdb-minor-mode
+        global-semantic-decoration-mode
+        global-semantic-highlight-func-mode
+        global-semantic-stickyfunc-mode
+        global-semantic-idle-summary-mode
+        global-semantic-idle-breadcrumbs-mode
+        global-semantic-mru-bookmark-mode))
+(add-hook 'prog-mode-hook 'semantic-mode)
 
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
 (global-set-key (kbd "C-,") 'previous-error)
