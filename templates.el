@@ -10,43 +10,47 @@
       (c-basic-offset-from-style (c-style-from-default-style))
     c-basic-offset))
 
-(defun instantiate-template-c-like (name directory filename body)
+(defun create-and-open-source-file (directory file_name body)
+  (let ((file_path (concat (file-name-as-directory project) file_name))
+        (indentation_width (make-string (indentation-width-c) ?\ )))
+    (with-temp-buffer
+      (insert (replace-regexp-in-string "\t" indentation_width body))
+      (write-file file_path))
+    (find-file file_path)))
+
+(defun create-implicit-makefile (name directory)
+  (with-temp-buffer
+    (insert (format "%s:\n" name))
+    (write-file (concat (file-name-as-directory directory) "Makefile"))))
+
+(defun formalize-template (name directory file_name body)
   (let ((project (concat directory name)))
     (unless (file-exists-p project)
       (make-directory project))
 
-    (let ((source_file (concat (file-name-as-directory project) filename))
-          (indentation_width (make-string (indentation-width-c) ?\ )))
-      (with-temp-buffer
-        (insert (replace-regexp-in-string "\t" indentation_width body))
-        (write-file source_file))
-      (find-file source_file))
+    (create-and-open-source-file directory file_name body)
+    (create-implicit-makefile name project)))
 
-    (with-temp-buffer
-      (insert (format "%s:\n" name))
-      (write-file (concat (file-name-as-directory project) "Makefile")))))
-
-(defun instantiate-template-c (name directory)
+(defun template-formalize-c (name directory)
   "Create a minimal C program and Makefile"
   (interactive "sName: \nDDirectory: ")
-  (instantiate-template-c-like name directory (format "%s.c" name)
-                               (concat "#include <stdio.h>\n\n"
-                                       "int main(int argc, char* argv[]) {\n"
-                                       (format "\tprintf(\"%s\\n\");\n" name)
-                                       "\treturn 0;\n"
-                                       "}\n")))
+  (let ((c_file_name (format "%s.c" name))
+        (c_body (concat "#include <stdio.h>\n\n"
+                        "int main(int argc, char* argv[]) {\n"
+                        (format "\tprintf(\"%s\\n\");\n" name)
+                        "\treturn 0;\n"
+                        "}\n")))
+    (formalize-template name directory c_file_name c_body)))
 
-(defun instantiate-template-cc (name directory)
+(defun template-formalize-cc (name directory)
   "Create a minimal C++ program and Makefile"
   (interactive "sName: \nDDirectory: ")
-  (instantiate-template-c-like
-   name
-   directory
-   (format "%s.cc" name)
-   (concat "#include <iostream>\n\n"
-           "int main(int argc, char* argv[]) {\n"
-           (format "\tstd::cout << \"%s\\n\";\n" name)
-           "\treturn 0;\n"
-           "}\n")))
+  (let ((cc_file_name (format "%s.cc" name))
+        (cc_body (concat "#include <iostream>\n\n"
+                         "int main(int argc, char* argv[]) {\n"
+                         (format "\tstd::cout << \"%s\\n\";\n" name)
+                         "\treturn 0;\n"
+                         "}\n")))
+    (formalize-template name directory cc_file_name cc_body)))
 
 (provide 'templates)
