@@ -48,7 +48,7 @@
 (setq confirm-nonexistent-file-or-buffer nil)
 (setq font-lock-global-modes '(not test-log-mode))
 (setq ido-default-buffer-method 'selected-window)
-(setq ring-bell-function #'ignore)
+(setq ring-bell-function 'ignore)
 (setq-default indent-tabs-mode nil)
 
 (setq scroll-step            1
