@@ -6,9 +6,6 @@
 
 (require 'midnight)
 
-(require 'on-screen)
-(on-screen-global-mode +1)
-
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-after-kill-buffer-p t)
