@@ -12,9 +12,10 @@
 (mouse-avoidance-mode 'jump)
 (setq x-stretch-cursor t)
 
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
+(when (display-graphic-p)
+  (menu-bar-mode -1)
+  (toggle-scroll-bar -1)
+  (tool-bar-mode -1))
 
 (setq inhibit-startup-message t)
 
