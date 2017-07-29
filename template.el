@@ -53,4 +53,4 @@
                          "}\n")))
     (formalize-template name directory cc_file_name cc_body)))
 
-(provide 'templates)
+(provide 'template)

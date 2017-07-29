@@ -4,6 +4,7 @@
 (require 'linenum)
 (require 'local nil t)
 (require 'miscfun)
+(require 'template)
 
 (require 'midnight)
 
