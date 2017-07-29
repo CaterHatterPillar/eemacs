@@ -1,28 +1,20 @@
-(defun prompt-error-unless-visiting-buffer ()
-  (unless buffer-file-name (error "Buffer not visiting a file")))
+(defun current-file-name ()
+  (unless buffer-file-name (error "Buffer not visiting a file"))
+  (buffer-file-name (window-buffer (minibuffer-selected-window))))
 
 (defun copy-file-name ()
   "Copy the current buffer file name."
   (interactive)
-  (prompt-error-unless-visiting-buffer)
-  (kill-new (file-name-nondirectory
-           (buffer-file-name
-            (window-buffer
-             (minibuffer-selected-window))))))
+  (kill-new (file-name-nondirectory (current-file-name))))
 
 (defun copy-file-directory ()
   "Copy the current buffer directory."
   (interactive)
-  (prompt-error-unless-visiting-buffer)
-  (kill-new (file-name-directory
-           (buffer-file-name
-            (window-buffer
-             (minibuffer-selected-window))))))
+  (kill-new (file-name-directory (current-file-name))))
 
 (defun copy-file-path ()
   "Copy the current buffer full path."
   (interactive)
-  (prompt-error-unless-visiting-buffer)
-  (kill-new (buffer-file-name (window-buffer (minibuffer-selected-window)))))
+  (kill-new (current-file-name)))
 
 (provide 'miscfun)
