@@ -58,7 +58,3 @@
 (setq mac-option-modifier nil
       mac-command-modifier 'meta
       x-select-enable-clipboard t)
-
-(setq frame-title-format
-      (list (format "%s %%S: %%j " (system-name))
-        '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
