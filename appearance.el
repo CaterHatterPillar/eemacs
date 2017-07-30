@@ -1,12 +1,11 @@
-(defun load-custom-theme ()
-  (add-to-list 'custom-theme-load-path
-               "~/.emacs.d/themes/emacs-color-theme-solarized")
-  (load-theme 'solarized t)
-  (set-frame-parameter nil 'background-mode 'dark)
-  (enable-theme 'solarized))
-
-(unless (version< emacs-version "24")
-  (load-custom-theme))
+(let ((theme-path "~/.emacs.d/themes/emacs-color-theme-solarized"))
+  (flet ((load-custom-theme ()
+                            (add-to-list 'custom-theme-load-path theme-path)
+                            (load-theme 'solarized t)
+                            (set-frame-parameter nil 'background-mode 'dark)
+                            (enable-theme 'solarized)))
+    (unless (version< emacs-version "24")
+      (load-custom-theme))))
 
 ;; Full filename in titlebar
 (setq frame-title-format
