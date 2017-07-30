@@ -14,6 +14,8 @@
 (defun debug-program (name)
   "Attempt to attach gdb to a process matching name"
   (interactive "sName: ")
+  (unless (process-attributes 0)
+    (error (format "process-attributes not supported on %s" system-type)))
   (let ((pids (matching-pids name)))
     (let ((num_pids (length pids)))
       (cond ((eq num_pids 0) (error "No matching process found"))
