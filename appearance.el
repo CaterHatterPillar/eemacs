@@ -12,10 +12,6 @@
       '((:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name)) "%b"))))
 
-(blink-cursor-mode -1)
-(mouse-avoidance-mode 'jump)
-(setq x-stretch-cursor t)
-
 (when (display-graphic-p)
   (menu-bar-mode -1)
   (toggle-scroll-bar -1)
@@ -24,5 +20,9 @@
 (setq inhibit-startup-message t)
 
 (setq column-number-mode t)
+
+(blink-cursor-mode -1)
+(mouse-avoidance-mode 'jump)
+(setq x-stretch-cursor t)
 
 (provide 'appearance)
