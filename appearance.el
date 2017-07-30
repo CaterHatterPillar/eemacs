@@ -8,6 +8,11 @@
 (unless (version< emacs-version "24")
   (load-custom-theme))
 
+;; Full filename in titlebar
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name)) "%b"))))
+
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
 (setq x-stretch-cursor t)

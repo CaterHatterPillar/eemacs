@@ -59,12 +59,6 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; Show full filename in frame title bar:
-(setq frame-title-format
-     	'((:eval (if (buffer-file-name)
-      		(abbreviate-file-name (buffer-file-name))
-      		"%b"))))
-
 ;; Auto-indent after newline:
 (add-hook 'c-mode-hook
           '(lambda ()
