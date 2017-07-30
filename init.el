@@ -1,6 +1,7 @@
 (setq load-path (cons "~/.emacs.d" load-path))
 
 (require 'appearance)
+(require 'keybind)
 (require 'linenum)
 (require 'local nil t)
 (require 'miscfun)
@@ -36,13 +37,6 @@
         global-semantic-mru-bookmark-mode))
 (add-hook 'prog-mode-hook 'semantic-mode)
 
-(global-set-key (kbd "C-x C-b") 'buffer-menu)
-(global-set-key (kbd "C-,") 'previous-error)
-(global-set-key (kbd "C-.") 'next-error)
-
-(global-set-key (kbd "<f5>") 'revert-buffer)
-(global-set-key (kbd "<f6>") 'recompile)
-
 (windmove-default-keybindings)
 
 (setq confirm-nonexistent-file-or-buffer nil)
@@ -62,10 +56,6 @@
    kept-new-versions 6
    kept-old-versions 2
    version-control t)
-
-(if (version< emacs-version "24.4")
-    (global-set-key (kbd "M-SPC") 'just-one-space)
-    (global-set-key (kbd "M-SPC") 'cycle-spacing))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
