@@ -3,8 +3,8 @@
 (defun pred (pid name)
   (let ((user (user-uid))
         (attributes (process-attributes pid)))
-    (and (eq (assoc 'euid attributes) user)
-         (eq (assoc 'comm attributes) name))))
+    (and (eq (cdr (assoc 'euid attributes)) user)
+         (equal (cdr (assoc 'comm attributes)) name))))
 
 (defun matching-pids (name)
   (let ((pred (lambda (pid) (funcall #'pred pid name)))
