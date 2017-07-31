@@ -10,15 +10,21 @@
     (and (eq (cdr (assoc 'euid attributes)) user)
          (equal (cdr (assoc 'comm attributes)) name))))
 
-(defun debug-program (name)
+(defun debug-program (name pid)
   "Attempt to attach gdb to a process matching name"
-  (interactive "sName: ")
-  (let* ((pred (lambda (pid) (funcall #'uid-and-name pid name)))
-         (pids (system-processes-qualifying-predicate pred))
-         (num_pids (length pids)))
-    (cond ((eq num_pids 0) (error "No matching process found"))
-          ((eq num_pids 1) (gdb (format "gdb --pid %d" (car pids))))
-          (t (error "Multiple matches found")))))
+  (interactive
+   (let* ((name (read-string "Name: "))
+          (pred (lambda (pid) (funcall #'uid-and-name pid name)))
+          (pids (mapcar 'number-to-string
+                        (system-processes-qualifying-predicate pred)))
+          (num_pids (length pids)))
+     (cond ((eq num_pids 0) (error "No matching process found"))
+           ((eq num_pids 1) (list name (car pids)))
+           ((minibuffer-with-setup-hook (lambda () (funcall #'proced t))
+              (let* ((prompt "Multiple matches. Select PID: ")
+                     (pid (completing-read prompt pids nil t)))
+                (list name (string-to-number pid))))))))
+  (gdb (format "gdb --pid %d" (car pids))))
 
 (defun current-file-name ()
   (unless buffer-file-name (error "Buffer not visiting a file"))
