@@ -24,7 +24,7 @@
               (let* ((prompt "Multiple matches. Select PID: ")
                      (pid (completing-read prompt pids nil t)))
                 (list name (string-to-number pid))))))))
-  (gdb (format "gdb --pid %d" (car pids))))
+  (gdb (format "gdb --pid %d" pid)))
 
 (defun current-file-name ()
   (unless buffer-file-name (error "Buffer not visiting a file"))
