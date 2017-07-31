@@ -1,20 +1,20 @@
 (require 'cl)
 
-(defun pred (pid name)
+(defun system-processes-qualifying-predicate (pred)
+  (let ((pids (list-system-processes)))
+    (remove-if-not pred pids)))
+
+(defun uid-and-name (pid name)
   (let ((user (user-uid))
         (attributes (process-attributes pid)))
     (and (eq (cdr (assoc 'euid attributes)) user)
          (equal (cdr (assoc 'comm attributes)) name))))
 
-(defun matching-pids (name)
-  (let ((pred (lambda (pid) (funcall #'pred pid name)))
-        (pids (list-system-processes)))
-    (remove-if-not pred pids)))
-
 (defun debug-program (name)
   "Attempt to attach gdb to a process matching name"
   (interactive "sName: ")
-  (let* ((pids (matching-pids name))
+  (let* ((pred (lambda (pid) (funcall #'uid-and-name pid name)))
+         (pids (system-processes-qualifying-predicate pred))
          (num_pids (length pids)))
     (cond ((eq num_pids 0) (error "No matching process found"))
           ((eq num_pids 1) (gdb (format "gdb --pid %d" (car pids))))
