@@ -4,6 +4,7 @@
 
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "<f6>") 'recompile)
+(global-set-key (kbd "<f7>") 'kill-compilation)
 
 (if (version< emacs-version "24.4")
     (global-set-key (kbd "M-SPC") 'just-one-space)
