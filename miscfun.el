@@ -4,11 +4,11 @@
   (let ((pids (list-system-processes)))
     (remove-if-not pred pids)))
 
-(defun uid-and-name (pid name)
+(defun uid-and-name (pid regex)
   (let ((user (user-uid))
         (attributes (process-attributes pid)))
     (and (eq (cdr (assoc 'euid attributes)) user)
-         (equal (cdr (assoc 'comm attributes)) name))))
+         (string-match regex (cdr (assoc 'comm attributes))))))
 
 (defun debug-program (name pid)
   "Attempt to attach gdb to a process matching name"
