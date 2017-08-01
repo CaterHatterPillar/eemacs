@@ -29,6 +29,7 @@
       (make-directory project))
 
     (create-and-open-source-file directory file_name body)
+    (compile (format "make && %s" name))
     (create-implicit-makefile name project)))
 
 (defun template-formalize-c (name directory)
