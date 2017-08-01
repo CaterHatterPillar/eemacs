@@ -13,7 +13,7 @@
 (defun debug-program (name pid)
   "Attempt to attach gdb to a process matching name"
   (interactive
-   (let* ((name (read-string "Name: "))
+   (let* ((name (read-string "Name (regex): "))
           (pred (lambda (pid) (funcall #'uid-and-name pid name)))
           (pids (mapcar 'number-to-string
                         (system-processes-qualifying-predicate pred)))
