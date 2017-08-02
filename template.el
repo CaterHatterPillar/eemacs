@@ -30,7 +30,7 @@
 
     (create-and-open-source-file directory file_name body)
     (create-implicit-makefile name project)
-    (compile (format "make && %s" name))))
+    (compile (format "make && ./%s" name))))
 
 (defun template-formalize-c (name directory)
   "Create a minimal C program and Makefile"
