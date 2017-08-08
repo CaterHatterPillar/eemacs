@@ -14,6 +14,7 @@
 
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
+(setq compilation-scroll-output 'first-error)
 (setq-default indent-tabs-mode nil)
 
 (add-hook 'c-mode-hook
