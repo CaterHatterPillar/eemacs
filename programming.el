@@ -15,6 +15,7 @@
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
 (setq-default indent-tabs-mode nil)
+(setq initial-scratch-message nil)
 
 (add-hook 'c-mode-hook
           '(lambda () (define-key c-mode-map "\C-m" 'newline-and-indent)))
