@@ -14,10 +14,16 @@
 
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
-(setq compilation-scroll-output 'first-error)
 (setq-default indent-tabs-mode nil)
 
 (add-hook 'c-mode-hook
           '(lambda () (define-key c-mode-map "\C-m" 'newline-and-indent)))
+
+(defun notify-compilation-complete(buffer msg)
+  (if (string-match "^finished" msg)
+      (tooltip-show "\n Compilation Success \n ")
+    (tooltip-show "\n Compilation Failure \n ")))
+(add-to-list 'compilation-finish-functions 'notify-compilation-complete)
+(setq compilation-scroll-output 'first-error)
 
 (provide 'programming)
