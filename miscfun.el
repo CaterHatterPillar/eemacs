@@ -47,9 +47,9 @@
 
 (defun reverse-at-point (thing)
   (let ((bounds (bounds-of-thing-at-point thing))
-        (word (thing-at-point thing)))
+        (at-point (thing-at-point thing)))
     (delete-region (car bounds) (cdr bounds))
-    (insert (reverse word))))
+    (insert (reverse at-point))))
 
 (defun reverse-word ()
   (interactive)
