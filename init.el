@@ -31,6 +31,7 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-after-kill-buffer-p t)
 
+(setq auto-revert-interval 1)
 (global-auto-revert-mode 1)
 
 (setq confirm-nonexistent-file-or-buffer nil)
