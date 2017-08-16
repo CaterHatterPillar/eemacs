@@ -45,4 +45,19 @@
   (interactive)
   (kill-new (current-file-name)))
 
+(defun reverse-at-point (thing)
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point thing))
+        (word (thing-at-point thing)))
+    (delete-region (car bounds) (cdr bounds))
+    (insert (reverse word))))
+
+(defun reverse-word ()
+  (interactive)
+  (reverse-at-point 'word))
+
+(defun reverse-symbol ()
+  (interactive)
+  (reverse-at-point 'symbol))
+
 (provide 'miscfun)
