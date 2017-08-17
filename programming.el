@@ -27,4 +27,15 @@
 (add-to-list 'compilation-finish-functions 'notify-compilation-complete)
 (setq compilation-scroll-output 'first-error)
 
+(defun display-piped-output (buffer msg)
+  (unless (string-match "^finished" msg)
+    (switch-to-buffer "test.log")))
+
+(define-minor-mode moscow-compilation-mode
+  "Expect compilation output piped to file"
+  :global t
+  (if moscow-compilation-mode
+      (add-hook 'compilation-finish-functions 'display-piped-output)
+    (remove-hook 'compilation-finish-functions 'display-piped-output)))
+
 (provide 'programming)
