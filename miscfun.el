@@ -59,4 +59,15 @@
   (interactive)
   (reverse-at-point 'symbol))
 
+(defun rename ()
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (unless buffer-file-name (error "Buffer not visiting a file"))
+    (let ((new-filename (read-file-name "Rename to: " filename)))
+      (if (vc-backend filename)
+          (vc-rename-file filename new-filename)
+        (rename-file filename new-filename t))
+      (set-visited-file-name new-filename)
+      (set-buffer-modified-p nil))))
+
 (provide 'miscfun)
