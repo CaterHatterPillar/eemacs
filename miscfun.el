@@ -59,7 +59,7 @@
   (interactive)
   (reverse-at-point 'symbol))
 
-(defun rename ()
+(defun rename-file-and-buffer ()
   (interactive)
   (let ((filename (buffer-file-name)))
     (unless buffer-file-name (error "Buffer not visiting a file"))
@@ -70,7 +70,7 @@
       (set-visited-file-name new-filename)
       (set-buffer-modified-p nil))))
 
-(defun remove ()
+(defun remove-file-and-buffer ()
   (interactive)
   (let ((filename (buffer-file-name)))
     (unless buffer-file-name (error "Buffer not visiting a file"))
