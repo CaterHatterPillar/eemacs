@@ -70,4 +70,13 @@
       (set-visited-file-name new-filename)
       (set-buffer-modified-p nil))))
 
+(defun remove ()
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (unless buffer-file-name (error "Buffer not visiting a file"))
+    (if (vc-backend filename)
+        (vc-delete-file filename)
+      (delete-file filename))
+    (kill-buffer)))
+
 (provide 'miscfun)
