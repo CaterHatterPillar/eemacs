@@ -79,6 +79,39 @@
       (delete-file filename))
     (kill-buffer)))
 
+(defun bounds-of-binary-at-point ()
+  (save-excursion
+    (skip-chars-backward "b01")
+    (if (looking-at "0b[01]+")
+        (cons (point) (match-end 0))
+      nil)))
+
+(defun bounds-of-octal-at-point ()
+  (save-excursion
+    (skip-chars-backward "01234567")
+    (if (looking-at "0[0-7]+")
+        (cons (point) (match-end 0))
+      nil)))
+
+(defun bounds-of-decimal-at-point ()
+  (save-excursion
+    (skip-chars-backward "-0123456789")
+    (if (looking-at "-?[0-9]+")
+        (cons (point) (match-end 0))
+      nil)))
+
+(defun bounds-of-hex-at-point ()
+  (save-excursion
+    (skip-chars-backward "x0123456789abcdefABCDEF")
+    (if (looking-at "0x[0-9a-fA-F]+")
+        (cons (point) (match-end 0))
+      nil)))
+
+(put 'binary 'bounds-of-thing-at-point 'bounds-of-binary-at-point)
+(put 'octal 'bounds-of-thing-at-point 'bounds-of-octal-at-point)
+(put 'decimal 'bounds-of-thing-at-point 'bounds-of-decimal-at-point)
+(put 'hex 'bounds-of-thing-at-point 'bounds-of-hex-at-point)
+
 (defun format-binary (b)
   (let ((s ""))
     (while (> b 0)
@@ -87,30 +120,68 @@
         (setq s (concat "0" s)))
       (setq b (lsh b -1)))
     (message s)))
- 
-(defun display-number-at-point (format-string)
-  (let ((at-point (thing-at-point 'number)))
+
+(defun radix-at-point ()
+  (cond ((thing-at-point 'binary) 'binary)
+        ((thing-at-point 'octal) 'octal)
+        ((thing-at-point 'hex) 'hex)
+        ((thing-at-point 'decimal) 'decimal)
+        (t (error "NaN at point"))))
+
+(defun elastic-number-at-point ()
+  (let* ((number (radix-at-point))
+         (notation-end 0)
+         (radix 10))
+    (cond ((eq number 'binary)
+           (setq notation-end 2)
+           (setq radix 2))
+          ((eq number 'octal)
+           (setq notation-end 1)
+           (setq radix 8))
+          ((eq number 'hex)
+           (setq notation-end 2)
+           (setq radix 16)))
+    (string-to-number
+     (substring (thing-at-point number) notation-end nil) radix)))
+
+(defun format-number-at-point (format-string)
+  (let ((at-point (elastic-number-at-point)))
     (if (equal format-string "%b")
         (message (format-binary at-point))
-      (message (format format-string at-point)))))
+      (format format-string at-point))))
 
 (defun as-binary ()
   (interactive)
-  (display-number-at-point "%b"))
- 
+  (let ((binary (concat "0b" (format-number-at-point "%b"))))
+    (if (called-interactively-p 'interactive)
+        (message binary)
+      binary)))
+
 (defun as-octal ()
   (interactive)
-  (display-number-at-point "%o"))
- 
-(defun as-hexadecimal ()
-  (interactive)
-  (display-number-at-point "%x"))
+  (let ((octal (concat "0" (format-number-at-point "%o"))))
+    (if (called-interactively-p 'interactive)
+        (message octal)
+      octal)))
 
-(defun convert-number-at-point (new)
-  ;; bounds-of-thing-at-point doesn't accept 'number
-  (let ((bounds (bounds-of-thing-at-point 'word)))
-    (delete-region (car bounds) (cdr bounds))
-    (insert new)))
+(defun as-decimal ()
+  (interactive)
+  (let ((decimal (format-number-at-point "%d")))
+    (if (called-interactively-p 'interactive)
+        (message decimal)
+      decimal)))
+
+(defun as-hex ()
+  (interactive)
+  (let ((hex (concat "0x" (format-number-at-point "%x"))))
+    (if (called-interactively-p 'interactive)
+        (message hex)
+      hex)))
+
+(defun convert-number-at-point (as)
+  (let ((bounds (bounds-of-thing-at-point (radix-at-point))))
+    (delete-region (car bounds) (cdr bounds)))
+  (insert as))
 
 (defun to-binary ()
   (interactive)
@@ -119,9 +190,13 @@
 (defun to-octal ()
   (interactive)
   (convert-number-at-point (as-octal)))
- 
-(defun to-hexadecimal ()
+
+(defun to-decimal ()
   (interactive)
-  (convert-number-at-point (as-hexadecimal)))
+  (convert-number-at-point (as-decimal)))
+ 
+(defun to-hex ()
+  (interactive)
+  (convert-number-at-point (as-hex)))
 
 (provide 'miscfun)
