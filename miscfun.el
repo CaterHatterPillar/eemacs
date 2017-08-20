@@ -70,4 +70,49 @@
       (set-visited-file-name new-filename)
       (set-buffer-modified-p nil))))
 
+(defun format-binary (b)
+  (let ((s ""))
+    (while (> b 0)
+      (if (logand b 1)
+          (setq s (concat "1" s))
+        (setq s (concat "0" s)))
+      (setq b (lsh b -1)))
+    (message s)))
+ 
+(defun display-number-at-point (format-string)
+  (let ((at-point (thing-at-point 'number)))
+    (if (equal format-string "%b")
+        (message (format-binary at-point))
+      (message (format format-string at-point)))))
+
+(defun as-binary ()
+  (interactive)
+  (display-number-at-point "%b"))
+ 
+(defun as-octal ()
+  (interactive)
+  (display-number-at-point "%o"))
+ 
+(defun as-hexadecimal ()
+  (interactive)
+  (display-number-at-point "%x"))
+
+(defun convert-number-at-point (new)
+  ;; bounds-of-thing-at-point doesn't accept 'number
+  (let ((bounds (bounds-of-thing-at-point 'word)))
+    (delete-region (car bounds) (cdr bounds))
+    (insert new)))
+
+(defun to-binary ()
+  (interactive)
+  (convert-number-at-point (as-binary)))
+
+(defun to-octal ()
+  (interactive)
+  (convert-number-at-point (as-octal)))
+ 
+(defun to-hexadecimal ()
+  (interactive)
+  (convert-number-at-point (as-hexadecimal)))
+
 (provide 'miscfun)
