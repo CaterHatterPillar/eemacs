@@ -106,7 +106,7 @@
 (defun format-binary (b)
   (let ((s ""))
     (while (> b 0)
-      (if (logand b 1)
+      (if (eq (logand b 1) 1)
           (setq s (concat "1" s))
         (setq s (concat "0" s)))
       (setq b (lsh b -1)))
