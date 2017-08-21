@@ -110,7 +110,7 @@
           (setq s (concat "1" s))
         (setq s (concat "0" s)))
       (setq b (lsh b -1)))
-    (message s)))
+    s))
 
 (defun radix-at-point ()
   (cond ((thing-at-point 'binary) 'binary)
