@@ -165,18 +165,22 @@
   (at-point-as 'hex))
 
 (defun as-binary ()
+  "Display a binary, octal, decimal, or hexadecimal at point as binary"
   (interactive)
   (message (at-point-as-binary)))
 
 (defun as-octal ()
+  "Display a binary, octal, decimal, or hexadecimal at point as octal"
   (interactive)
   (message (at-point-as-octal)))
 
 (defun as-decimal ()
+  "Display a binary, octal, decimal, or hexadecimal at point as decimal"
   (interactive)
   (message (at-point-as-decimal)))
 
 (defun as-hex ()
+  "Display a binary, octal, decimal, or hexadecimal at point as hexadecimal"
   (interactive)
   (message (at-point-as-hex)))
 
@@ -186,18 +190,22 @@
   (insert as))
 
 (defun to-binary ()
+  "Convert a binary, octal, decimal, or hexadecimal at point to binary"
   (interactive)
   (convert-number-at-point (at-point-as-binary)))
 
 (defun to-octal ()
+  "Convert a binary, octal, decimal, or hexadecimal at point to octal"
   (interactive)
   (convert-number-at-point (at-point-as-octal)))
 
 (defun to-decimal ()
+  "Convert a binary, octal, decimal, or hexadecimal at point to decimal"
   (interactive)
   (convert-number-at-point (at-point-as-decimal)))
 
 (defun to-hex ()
+  "Convert a binary, octal, decimal, or hexadecimal at point to hexadecimal"
   (interactive)
   (convert-number-at-point (at-point-as-hex)))
 
