@@ -11,6 +11,11 @@
 
 (require 'midnight)
 
+;; ELPA/MELPA
+
+(add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+(add-hook 'c-mode-hook #'aggressive-indent-mode)
+
 ;; State
 
 (setq savehist-file "~/.emacs.d/history")
