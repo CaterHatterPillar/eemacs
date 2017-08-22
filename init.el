@@ -5,6 +5,7 @@
 (require 'linenum)
 (require 'local nil t)
 (require 'miscfun)
+(require 'numbers)
 (require 'programming)
 (require 'template)
 
