@@ -1,5 +1,6 @@
 (setq load-path (cons "~/.emacs.d" load-path))
 
+(require 'aliases)
 (require 'appearance)
 (require 'keybind)
 (require 'linenum)
@@ -55,11 +56,6 @@
 (setq font-lock-global-modes '(not test-log-mode))
 (setq ido-default-buffer-method 'selected-window)
 (setq ring-bell-function 'ignore)
-
-(defalias 'dl 'delete-matching-lines)
-(defalias 'kl 'keep-lines)
-(defalias 'sl 'sort-lines)
-(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Candidates
 ;; ----------
