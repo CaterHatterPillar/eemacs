@@ -31,6 +31,13 @@
       (setq b (lsh b -1)))
     (if (string= "" s) "0" s)))
 
+(ert-deftest format-binary ()
+  (should (equal (format-binary 0) "0"))
+  (should (equal (format-binary 1) "1"))
+  (should (equal (format-binary 2) "10"))
+  (should (equal (format-binary 3) "11"))
+  (should (equal (format-binary 4) "100")))
+
 (defun radix-at-point ()
   (cond ((thing-at-point 'binary) 'binary)
         ((thing-at-point 'octal) 'octal)
@@ -67,6 +74,12 @@
     (if (eq radix 'binary)
         (concat prefix (format-binary number))
       (concat prefix (format (radix-format radix) number)))))
+
+(ert-deftest format-number-as ()
+  (should (equal (format-number-as 255 'binary) "0b11111111"))
+  (should (equal (format-number-as 255 'decimal) "255"))
+  (should (equal (format-number-as 255 'octal) "0377"))
+  (should (equal (format-number-as 255 'hex) "0xff")))
 
 (defun at-point-as (radix)
   (format-number-as (number-at-point) radix))
