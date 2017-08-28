@@ -79,4 +79,17 @@
       (delete-file filename))
     (kill-buffer)))
 
+(defun non-user-buffer (buffer)
+  (let ((name (buffer-name buffer)))
+    (when (or (string-prefix-p " " name)
+              (and (string-prefix-p "*" name) (string-suffix-p "*" name)))
+        t)))
+
+(defun num-user-buffers ()
+  (length (cl-remove-if 'non-user-buffer (buffer-list))))
+
+;; Provided recently launched...
+(defun launched-with-buffer ()
+  (when (> (num-user-buffers) 0) t))
+
 (provide 'miscfun)
