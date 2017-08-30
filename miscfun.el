@@ -92,14 +92,4 @@
 (defun launched-with-buffer ()
   (when (> (num-user-buffers) 0) t))
 
-(define-minor-mode disk-io-mode
-  :global t
-  (if disk-io-mode
-      (progn (global-auto-revert-mode -1)
-             (setq make-backup-files nil)
-             (setq auto-save-default nil))
-    (progn (global-auto-revert-mode t)
-           (setq make-backup-files t)
-           (setq auto-save-default t))))
-
 (provide 'miscfun)
