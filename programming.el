@@ -17,6 +17,8 @@
 (setq-default indent-tabs-mode nil)
 (setq initial-scratch-message nil)
 
+(setq grep-scroll-output t)
+
 (add-hook 'c-mode-hook
           '(lambda () (define-key c-mode-map "\C-m" 'newline-and-indent)))
 
