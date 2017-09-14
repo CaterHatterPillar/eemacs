@@ -92,4 +92,16 @@
 (defun launched-with-buffer ()
   (when (> (num-user-buffers) 0) t))
 
+(defun lazy-break ()
+  (interactive)
+  (let ((tokens (split-string (thing-at-point 'line t) ", ")))
+    (unless (= (length tokens) 1)
+      (let* ((breaknew (function (lambda (p) (format "%s,\n" p)))) 
+             (new-lines (mapcar breaknew (butlast tokens)))
+             (lines (append new-lines (last tokens))))
+        (move-beginning-of-line nil)
+        (kill-line 1)
+        (mapcar (function (lambda (l) (insert l) (indent-according-to-mode)))
+                lines)))))
+
 (provide 'miscfun)
