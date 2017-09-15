@@ -96,41 +96,40 @@
   (interactive)
   (let ((tokens (split-string (thing-at-point 'line t) ", ")))
     (unless (= (length tokens) 1)
-      (let* ((breaknew (function (lambda (p) (format "%s,\n" p))))
-             (new-lines (mapcar breaknew (butlast tokens)))
-             (lines (append new-lines (last tokens))))
+      (let* ((breaks (mapcar (lambda (p) (format "%s,\n" p)) (butlast tokens)))
+             (lines (append breaks (last tokens))))
         (move-beginning-of-line nil)
         (kill-line 1)
-        (mapcar (function (lambda (l) (insert l) (indent-according-to-mode)))
-                lines)))))
+        (mapc (lambda (l) (insert l) (indent-according-to-mode)) lines)))))
 
 (defun cur-line ()
   (+ (count-lines 1 (point)) 1))
 
 (defun end-char-at-line (&optional line)
-  (unless line (setq line (cur-line)))
+  (unless line
+    (setq line (cur-line)))
   (save-excursion (forward-line (- line (cur-line)))
                   (move-end-of-line nil)
                   (char-before)))
 
 (defun find-last-line-ending-with (char next-fun back-fun max)
   (while (and (equal (end-char-at-line) char)
-              (not (= (cur-line) max)))
+              (/= (cur-line) max))
     (funcall next-fun))
   (unless (equal (end-char-at-line) char)
-    (funcall back-fun))
+    (funcall back-fun))  ;; Doesn't make sense at the end of a buffer
   (cur-line))
 
 (defun backwards-last-line-ending-with (char)
   (find-last-line-ending-with char
-                              (function (lambda () (forward-line -1)))
-                              (function (lambda () (forward-line 1)))
+                              (lambda () (forward-line -1))
+                              (lambda () (forward-line))
                               1))
 
 (defun forwards-last-line-ending-with (char)
   (find-last-line-ending-with char
-                              (function (lambda () (forward-line 1)))
-                              (function (lambda () (forward-line -1)))
+                              (lambda () (forward-line))
+                              (lambda () (forward-line -1))
                               (line-number-at-pos (point-max))))
 
 (defun lazy-unbreak-args ()
