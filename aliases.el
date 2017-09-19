@@ -1,3 +1,4 @@
+(defalias 'ar 'align-regexp)
 (defalias 'dl 'delete-matching-lines)
 (defalias 'kl 'keep-lines)
 (defalias 'rb 'rename-buffer)
