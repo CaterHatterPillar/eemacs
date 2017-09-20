@@ -12,7 +12,7 @@
   (simple-bounds-at-point "01234567" "0[0-7]+"))
 
 (defun bounds-of-decimal-at-point ()
-  (simple-bounds-at-point "-0123456789" "-?[0-9]+"))
+  (simple-bounds-at-point "0123456789" "[0-9]+"))
 
 (defun bounds-of-hex-at-point ()
   (simple-bounds-at-point "x0123456789abcdefABCDEF" "0x[0-9a-fA-F]+"))
