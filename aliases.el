@@ -1,3 +1,6 @@
+(defalias 'cfn 'copy-file-name)
+(defalias 'cfp 'copy-file-path)
+(defalias 'cdf 'copy-file-directory)
 (defalias 'ar 'align-regexp)
 (defalias 'dl 'delete-matching-lines)
 (defalias 'kl 'keep-lines)
