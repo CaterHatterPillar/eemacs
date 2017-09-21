@@ -45,20 +45,6 @@
   (interactive)
   (kill-new (current-file-name)))
 
-(defun reverse-at-point (thing)
-  (let ((bounds (bounds-of-thing-at-point thing))
-        (at-point (thing-at-point thing)))
-    (delete-region (car bounds) (cdr bounds))
-    (insert (reverse at-point))))
-
-(defun reverse-word ()
-  (interactive)
-  (reverse-at-point 'word))
-
-(defun reverse-symbol ()
-  (interactive)
-  (reverse-at-point 'symbol))
-
 (defun rename-file-and-buffer ()
   (interactive)
   (let ((filename (buffer-file-name)))
