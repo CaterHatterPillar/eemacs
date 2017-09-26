@@ -152,4 +152,33 @@
       (set-window-start w1 s2)
       (set-window-start w2 s1))))
 
+(defun is-windows ()
+  (string-equal system-type "windows-nt"))
+
+(defun is-linux ()
+  (string-equal system-type "gnu/linux"))
+
+(defun is-mac ()
+  (string-equal system-type "darwino"))
+
+(defun dos2unix ()
+  "Remove all carriage returns"
+  (interactive)
+  (save-excursion (goto-char (point-min))
+                  (while (search-forward "\r" nil t)
+                    (replace-match ""))))
+
+(defun unix2dos ()
+  "Add a carriage return to every line feed"
+  (interactive)
+  (save-excursion (goto-char (point-min))
+                  (while (search-forward "\n" nil t)
+                    (replace-match "\r\n"))))
+
+(defun apply-prejudice ()
+  (interactive)
+  (delete-trailing-whitespace)
+  (untabify (point-min) (point-max))
+  (indent-region (point-min) (point-max)))
+
 (provide 'miscfun)
