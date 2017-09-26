@@ -1,4 +1,5 @@
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
+(global-set-key (kbd "C-<tab>") 'hippie-expand)
 (global-set-key (kbd "C-,") 'previous-error)
 (global-set-key (kbd "C-.") 'next-error)
 
