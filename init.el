@@ -52,6 +52,12 @@
 (setq ido-default-buffer-method 'selected-window)
 (setq ring-bell-function 'ignore)
 
+(add-hook 'text-mode-hook (lambda () (flyspell-mode 1)))
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
+
+(add-hook 'prog-mode-hook (lambda () (flyspell-prog-mode)))
+
 ;; Candidates
 ;; ----------
 
