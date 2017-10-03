@@ -49,7 +49,6 @@
 ;; Misc
 
 (setq font-lock-global-modes '(not test-log-mode))
-(setq ido-default-buffer-method 'selected-window)
 (setq ring-bell-function 'ignore)
 
 (when (is-linux)
