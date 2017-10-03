@@ -1,4 +1,4 @@
-(setq load-path (cons "~/.emacs.d" load-path))
+(setq load-path (cons "~/.emacs.d/elisp" load-path))
 
 (require 'aliases)
 (require 'appearance)
