@@ -48,6 +48,7 @@
 
 ;; Misc
 
+(defalias 'yes-or-no-p 'y-or-n-p)
 (setq font-lock-global-modes '(not test-log-mode))
 (setq ring-bell-function 'ignore)
 

@@ -7,6 +7,5 @@
 (defalias 'rb 'rename-buffer)
 (defalias 'ru 'rename-uniquely)
 (defalias 'sl 'sort-lines)
-(defalias 'yes-or-no-p 'y-or-n-p)
 
 (provide 'aliases)
