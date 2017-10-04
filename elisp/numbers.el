@@ -25,9 +25,7 @@
 (defun format-binary (b)
   (let ((s ""))
     (while (> b 0)
-      (if (eq (logand b 1) 1)
-          (setq s (concat "1" s))
-        (setq s (concat "0" s)))
+      (setq s (concat (number-to-string (logand b 1)) s))
       (setq b (lsh b -1)))
     (if (string= "" s) "0" s)))
 
