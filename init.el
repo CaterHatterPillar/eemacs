@@ -36,6 +36,7 @@
 (setq auto-revert-interval 1)
 (global-auto-revert-mode 1)
 
+(setq auto-revert-verbose nil)
 (setq confirm-nonexistent-file-or-buffer nil)
 
 (setq scroll-step            1
