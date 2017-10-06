@@ -52,6 +52,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq font-lock-global-modes '(not test-log-mode))
 (setq ring-bell-function 'ignore)
+(setq save-interprogram-paste-before-kill t)
 
 (when (is-linux)
   (progn (add-hook 'text-mode-hook (lambda () (flyspell-mode 1)))
