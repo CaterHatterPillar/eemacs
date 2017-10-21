@@ -28,7 +28,10 @@
   (if (string-match "^finished" msg)
       (tooltip-show "\n Compilation Success \n ")
     (tooltip-show "\n Compilation Failure \n ")))
-(add-to-list 'compilation-finish-functions 'notify-compilation-complete)
+
+(when (display-graphic-p)
+  (add-to-list 'compilation-finish-functions 'notify-compilation-complete))
+
 (setq compilation-scroll-output 'first-error)
 
 (defun display-piped-output (buffer msg)
