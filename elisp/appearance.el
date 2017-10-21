@@ -4,7 +4,7 @@
                            (load-theme 'solarized t)
                            (set-frame-parameter nil 'background-mode 'dark)
                            (enable-theme 'solarized))))
-  (unless (version< emacs-version "24")
+  (unless (or (version< emacs-version "24") (not (display-graphic-p)))
       (funcall load-custom-theme)))
 
 ;; Full filename in titlebar
