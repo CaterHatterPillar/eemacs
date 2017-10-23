@@ -10,7 +10,6 @@
                                   global-semantic-idle-summary-mode
                                   global-semantic-idle-breadcrumbs-mode
                                   global-semantic-mru-bookmark-mode))
-(semantic-toggle-decoration-style 'semantic-decoration-on-includes)
 
 (add-hook 'prog-mode-hook 'semantic-mode)
 
