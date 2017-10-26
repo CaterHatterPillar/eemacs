@@ -67,3 +67,7 @@
 (setq mac-option-modifier nil
       mac-command-modifier 'meta
       x-select-enable-clipboard t)
+
+;; Prefer vertical splits on my home system
+(setq split-height-threshold nil)
+(setq split-width-threshold 160)

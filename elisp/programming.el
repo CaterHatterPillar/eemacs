@@ -10,6 +10,7 @@
                                   global-semantic-idle-summary-mode
                                   global-semantic-idle-breadcrumbs-mode
                                   global-semantic-mru-bookmark-mode))
+
 (add-hook 'prog-mode-hook 'semantic-mode)
 
 (add-hook 'prog-mode-hook 'show-paren-mode)
@@ -26,7 +27,10 @@
   (if (string-match "^finished" msg)
       (tooltip-show "\n Compilation Success \n ")
     (tooltip-show "\n Compilation Failure \n ")))
-(add-to-list 'compilation-finish-functions 'notify-compilation-complete)
+
+(when (display-graphic-p)
+  (add-to-list 'compilation-finish-functions 'notify-compilation-complete))
+
 (setq compilation-scroll-output 'first-error)
 
 (defun display-piped-output (buffer msg)
