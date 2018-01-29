@@ -2,9 +2,11 @@
 (defalias 'cdf 'copy-file-directory)
 (defalias 'cfn 'copy-file-name)
 (defalias 'cfp 'copy-file-path)
+(defalias 'cr 'comment-region)
 (defalias 'dl 'delete-matching-lines)
 (defalias 'kl 'keep-lines)
 (defalias 'rb 'rename-buffer)
+(defalias 'rr 'replace-regexp)
 (defalias 'ru 'rename-uniquely)
 (defalias 'sl 'sort-lines)
 
