@@ -75,17 +75,11 @@
       (concat prefix (format (radix-format radix) number)))))
 
 (unless (version< emacs-version "24")
-  (ert-deftest format-decimal-as ()
+  (ert-deftest format-number-as ()
 	       (should (equal (format-number-as 255 'binary) "0b11111111"))
 	       (should (equal (format-number-as 255 'decimal) "255"))
 	       (should (equal (format-number-as 255 'octal) "0377"))
-	       (should (equal (format-number-as 255 'hex) "0xff")))
-
-  (ert-deftest format-hex-as ()
-	       (should (equal (format-number-as 0xff 'binary) "0b11111111"))
-	       (should (equal (format-number-as 0xff 'decimal) "255"))
-	       (should (equal (format-number-as 0xff 'octal) "0377"))
-	       (should (equal (format-number-as 0xff 'hex) "0xff"))))
+	       (should (equal (format-number-as 255 'hex) "0xff"))))
 
 (defun at-point-as (radix)
   (format-number-as (number-at-point) radix))
