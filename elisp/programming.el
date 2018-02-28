@@ -46,7 +46,6 @@
 
 (require 'diff)
 (defun delete-trailing-whitespace-at-modified-lines ()
-  (interactive)
   (when buffer-file-name
     (when (derived-mode-p 'prog-mode)
       (save-excursion
