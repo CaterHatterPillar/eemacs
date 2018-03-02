@@ -4,11 +4,14 @@
 (require 'appearance)
 (require 'keybind)
 (require 'linenum)
-(require 'local nil t)
 (require 'miscfun)
 (require 'numbers)
 (require 'programming)
 (require 'template)
+
+(require 'local nil t)
+(unless (featurep 'local)
+  (require 'unless-local))
 
 (require 'midnight)
 
