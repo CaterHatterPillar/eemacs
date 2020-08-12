@@ -1,3 +1,17 @@
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar packages '(elpy
+                   flycheck
+                   py-autopep8))
+(mapc #'(lambda (package)
+          (unless (package-installed-p package)
+            (package-install package)))
+      packages)
+
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
 
 (require 'aliases)
@@ -14,6 +28,13 @@
   (require 'unless-local))
 
 (require 'midnight)
+
+(add-to-list 'load-path "/usr/share/stgit/contrib")
+(require 'stgit)
+
+;; Set these so that you can call conda in the compilation environment
+(setq shell-file-name "bash")
+(setq shell-command-switch "-ic")
 
 ;; State
 
@@ -75,3 +96,15 @@
 ;; Prefer vertical splits on my home system
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (conda flycheck elpy anaconda-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
