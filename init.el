@@ -22,6 +22,7 @@
 (require 'numbers)
 (require 'programming)
 (require 'template)
+(require 'custom-python)
 
 (require 'local nil t)
 (unless (featurep 'local)
