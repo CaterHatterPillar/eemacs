@@ -26,14 +26,24 @@
 (require 'template)
 (require 'custom-python)
 
-(require 'local nil t)
-(unless (featurep 'local)
-  (require 'unless-local))
-
 (require 'midnight)  ; Clean up buffers after a while
 
 (add-to-list 'load-path "/usr/share/stgit/contrib")  ; TODO
 (require 'stgit)
+
+;; Prevent trailing whitespace in modified lines
+(when (eq system-type 'gnu/linux)  ; no diff on windows
+  (require 'diff)
+  (defun delete-trailing-whitespace-at-modified-lines ()
+    (when (and buffer-file-name (derived-mode-p 'prog-mode))
+      (save-excursion
+        (with-current-buffer
+            (diff-no-select buffer-file-name (current-buffer) nil 'noasync)
+          (diff-delete-trailing-whitespace)
+          (kill-buffer)))))
+
+  (add-hook 'before-save-hook 'delete-trailing-whitespace-at-modified-lines))
+
 
 ;; Set these so that you can call conda in the compilation environment
 (setq shell-file-name "bash")
