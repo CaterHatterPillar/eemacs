@@ -1,9 +1,11 @@
+;; Configure MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+;; Install dependencies
 (defvar packages '(elpy
                    flycheck
                    py-autopep8))
@@ -28,9 +30,9 @@
 (unless (featurep 'local)
   (require 'unless-local))
 
-(require 'midnight)
+(require 'midnight)  ; Clean up buffers after a while
 
-(add-to-list 'load-path "/usr/share/stgit/contrib")
+(add-to-list 'load-path "/usr/share/stgit/contrib")  ; TODO
 (require 'stgit)
 
 ;; Set these so that you can call conda in the compilation environment
