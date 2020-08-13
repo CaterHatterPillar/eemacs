@@ -65,19 +65,6 @@
       (delete-file filename))
     (kill-buffer)))
 
-(defun non-user-buffer (buffer)
-  (let ((name (buffer-name buffer)))
-    (when (or (string-prefix-p " " name)
-              (and (string-prefix-p "*" name) (string-suffix-p "*" name)))
-        t)))
-
-(defun num-user-buffers ()
-  (length (cl-remove-if 'non-user-buffer (buffer-list))))
-
-;; Provided recently launched...
-(defun launched-with-buffer ()
-  (when (> (num-user-buffers) 0) t))
-
 (defun lazy-break-args ()
   (interactive)
   (let ((tokens (split-string (thing-at-point 'line t) ", ")))
@@ -152,14 +139,8 @@
       (set-window-start w1 s2)
       (set-window-start w2 s1))))
 
-(defun is-windows ()
-  (string-equal system-type "windows-nt"))
-
 (defun is-linux ()
   (string-equal system-type "gnu/linux"))
-
-(defun is-mac ()
-  (string-equal system-type "darwino"))
 
 (defun dos2unix ()
   "Remove all carriage returns"
