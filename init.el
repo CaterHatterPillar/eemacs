@@ -18,7 +18,6 @@
 
 ;; Aliases, bindings, and functions are better organized in separate files
 (require 'aliases)
-(require 'keybind)
 (require 'miscfun)
 
 (require 'numbers)
@@ -194,6 +193,21 @@
          (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
            (add-hook hook (lambda () (flyspell-mode -1))))
          (add-hook 'prog-mode-hook (lambda () (flyspell-prog-mode)))))
+
+;;; BINDINGS
+
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
+(global-set-key (kbd "C-,") 'previous-error)
+(global-set-key (kbd "C-.") 'next-error)
+(global-set-key (kbd "C-<tab>") 'hippie-expand)
+
+(global-set-key (kbd "<f5>") 'recompile)
+(global-set-key (kbd "<f6>") 'kill-compilation)
+(global-set-key (kbd "<f9>") 'lazy-guess-args)
+
+(if (version< emacs-version "24.4")
+    (global-set-key (kbd "M-SPC") 'just-one-space)
+    (global-set-key (kbd "M-SPC") 'cycle-spacing))
 
 ;;; CANDIDATES
 
