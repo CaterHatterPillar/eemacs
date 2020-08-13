@@ -181,8 +181,4 @@
   (untabify (point-min) (point-max))
   (indent-region (point-min) (point-max)))
 
-(defun kill-current-buffer ()
-  (interactive)
-  (kill-buffer (current-buffer)))
-
 (provide 'miscfun)
