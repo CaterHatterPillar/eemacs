@@ -16,10 +16,7 @@
 
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
 
-;; Aliases, bindings, and functions are better organized in separate files
-(require 'aliases)
 (require 'miscfun)
-
 (require 'numbers)
 (require 'template)
 
@@ -193,6 +190,12 @@
          (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
            (add-hook hook (lambda () (flyspell-mode -1))))
          (add-hook 'prog-mode-hook (lambda () (flyspell-prog-mode)))))
+
+;;; ALIASES
+
+(defalias 'dl 'delete-matching-lines)
+(defalias 'kl 'keep-lines)
+(defalias 'sl 'sort-lines)
 
 ;;; BINDINGS
 
