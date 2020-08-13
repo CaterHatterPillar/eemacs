@@ -156,10 +156,4 @@
                   (while (search-forward "\n" nil t)
                     (replace-match "\r\n"))))
 
-(defun apply-prejudice ()
-  (interactive)
-  (delete-trailing-whitespace)
-  (untabify (point-min) (point-max))
-  (indent-region (point-min) (point-max)))
-
 (provide 'miscfun)
