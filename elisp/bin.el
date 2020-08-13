@@ -90,8 +90,8 @@
 (reset-x)
 (reset-y)
 
-(global-set-key (kbd "M-<right>") 'lunge-forward)
-(global-set-key (kbd "M-<left>") 'lunge-back)
+;; (global-set-key (kbd "M-<right>") 'lunge-forward)
+;; (global-set-key (kbd "M-<left>") 'lunge-back)
 
-(global-set-key (kbd "M-<up>") 'lunge-up)
-(global-set-key (kbd "M-<down>") 'lunge-down)
+;; (global-set-key (kbd "M-<up>") 'lunge-up)
+;; (global-set-key (kbd "M-<down>") 'lunge-down)
