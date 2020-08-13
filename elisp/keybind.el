@@ -3,9 +3,8 @@
 (global-set-key (kbd "C-.") 'next-error)
 (global-set-key (kbd "C-<tab>") 'hippie-expand)
 
-(global-set-key (kbd "<f5>") 'revert-buffer)
-(global-set-key (kbd "<f6>") 'recompile)
-(global-set-key (kbd "<f7>") 'kill-compilation)
+(global-set-key (kbd "<f5>") 'recompile)
+(global-set-key (kbd "<f6>") 'kill-compilation)
 (global-set-key (kbd "<f9>") 'lazy-guess-args)
 
 (if (version< emacs-version "24.4")
