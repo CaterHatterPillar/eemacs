@@ -107,6 +107,10 @@
 
   (add-hook 'before-save-hook 'delete-trailing-whitespace-at-modified-lines))
 
+;; Prefer vertical splits on my home system
+(setq split-height-threshold nil)
+(setq split-width-threshold 160)
+
 ;;; PROGRAMMING
 
 (require 'whitespace)
@@ -194,10 +198,6 @@
 (setq mac-option-modifier nil
       mac-command-modifier 'meta
       x-select-enable-clipboard t)
-
-;; Prefer vertical splits on my home system
-(setq split-height-threshold nil)
-(setq split-width-threshold 160)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
