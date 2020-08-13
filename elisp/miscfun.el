@@ -139,9 +139,6 @@
       (set-window-start w1 s2)
       (set-window-start w2 s1))))
 
-(defun is-linux ()
-  (string-equal system-type "gnu/linux"))
-
 (defun dos2unix ()
   "Remove all carriage returns"
   (interactive)

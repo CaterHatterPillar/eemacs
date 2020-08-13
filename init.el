@@ -187,6 +187,8 @@
 (setq save-interprogram-paste-before-kill t)
 (setq echo-keystrokes 0.01)
 
+(defun is-linux ()
+  (string-equal system-type "gnu/linux"))
 (when (is-linux)
   (progn (add-hook 'text-mode-hook (lambda () (flyspell-mode 1)))
          (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
