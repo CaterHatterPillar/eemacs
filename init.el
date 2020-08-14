@@ -8,7 +8,9 @@
 ;; Install dependencies
 (defvar packages '(elpy
                    flycheck
-                   py-autopep8))
+                   py-autopep8
+                   rjsx-mode
+                   xref-js2))
 (mapc #'(lambda (package)
           (unless (package-installed-p package)
             (package-install package)))
@@ -169,6 +171,22 @@
 ;; Set these to enable conda in the compilation environment
 (setq shell-file-name "bash")
 (setq shell-command-switch "-ic")
+
+;;; JAVASCRIPT
+
+(setq indent-tabs-mode nil
+      js-indent-level 2)
+
+(eval-after-load 'rjsx-mode  ; Don't complete HTML brackets
+  '(progn
+     (define-key rjsx-mode-map "<" nil)))
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))  ; rjsx-mode as default
+
+(add-hook 'rjsx-mode-hook (lambda () (add-hook 'xref-backend-functions
+                                               #'xref-js2-xref-backend nil t)))
+
+(require 'xref-js2)
 
 ;;; WINDOWS
 
