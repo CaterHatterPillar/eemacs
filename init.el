@@ -10,7 +10,8 @@
                    flycheck
                    py-autopep8
                    rjsx-mode
-                   xref-js2))
+                   xref-js2
+                   indium))
 (mapc #'(lambda (package)
           (unless (package-installed-p package)
             (package-install package)))
@@ -188,6 +189,11 @@
 
 (require 'xref-js2)
 
+(setq indium-chrome-executable "google-chrome")
+
+(require 'indium)
+(add-hook 'js-mode-hook #'indium-interaction-mode)
+
 ;;; WINDOWS
 
 (winner-mode 1)
@@ -241,7 +247,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (conda flycheck elpy anaconda-mode))))
+ '(package-selected-packages
+   (quote
+    (indium conda flycheck elpy anaconda-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
