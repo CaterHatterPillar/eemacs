@@ -11,7 +11,8 @@
                    py-autopep8
                    rjsx-mode
                    xref-js2
-                   indium))
+                   indium
+                   yafolding))
 (mapc #'(lambda (package)
           (unless (package-installed-p package)
             (package-install package)))
@@ -109,6 +110,17 @@
 ;; Prefer vertical splits on my home system
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
+
+(require 'yafolding)
+(defvar yafolding-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "<C-S-return>") #'yafolding-hide-parent-element)
+    (define-key map (kbd "<C-M-return>") #'yafolding-toggle-all)
+    (define-key map (kbd "<C-return>") #'yafolding-toggle-element)
+    map))
+
+(add-hook 'prog-mode-hook
+          (lambda () (yafolding-mode)))
 
 ;;; PROGRAMMING
 
@@ -249,7 +261,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (indium conda flycheck elpy anaconda-mode))))
+    (yafolding indium conda flycheck elpy anaconda-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
