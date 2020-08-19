@@ -24,6 +24,8 @@
 (require 'numbers)
 (require 'template)
 
+(require 'local nil t)  ; in case there's a machine-specific configuration
+
 ;;; APPEARANCE
 
 (let ((theme-path "~/.emacs.d/themes/emacs-color-theme-solarized")
