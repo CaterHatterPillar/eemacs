@@ -187,6 +187,8 @@
 (setq shell-file-name "bash")
 (setq shell-command-switch "-ic")
 
+(setq gud-pdb-command-name "python -m pdb")
+
 ;;; JAVASCRIPT
 
 (setq indent-tabs-mode nil
