@@ -1,8 +1,15 @@
 local.el
 
+bookmarks
+package-lock.json
+
 /history
+/semanticdb
+/node_modules
+/elpa
 
 *.elc
 *~
 .\#*
 \#*#
+session.*
