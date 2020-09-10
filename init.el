@@ -10,8 +10,7 @@
                    flycheck
                    py-autopep8
                    rjsx-mode
-                   xref-js2
-                   indium))
+                   xref-js2))
 (mapc #'(lambda (package)
           (unless (package-installed-p package)
             (package-install package)))
@@ -183,11 +182,6 @@
 
 (require 'xref-js2)
 
-(setq indium-chrome-executable "google-chrome")
-
-(require 'indium)
-(add-hook 'js-mode-hook #'indium-interaction-mode)
-
 (require 'prettier-js)
 (add-hook 'rjsx-mode-hook 'prettier-js-mode)
 
@@ -246,7 +240,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (prettier-js prettier indium conda flycheck elpy anaconda-mode))))
+    (prettier-js prettier conda flycheck elpy anaconda-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
