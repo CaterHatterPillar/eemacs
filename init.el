@@ -1,11 +1,9 @@
-;; Configure MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; Install dependencies
 (defvar packages '(elpy
                    flycheck
                    py-autopep8
