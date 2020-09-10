@@ -184,8 +184,9 @@
 (pyvenv-activate "~/anaconda3/envs/tensorflow")  ; TODO
 
 ;; Set these to enable conda in the compilation environment
-(setq shell-file-name "bash")
-(setq shell-command-switch "-ic")
+;; TODO: this fucks up some bash commands in Emacs, like find-name-dired
+;; (setq shell-file-name "bash")
+;; (setq shell-command-switch "-ic")
 
 (setq gud-pdb-command-name "python -m pdb")
 
