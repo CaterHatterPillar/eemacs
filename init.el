@@ -19,7 +19,6 @@
 
 (require 'miscfun)
 (require 'numbers)
-(require 'template)
 
 (require 'local nil t)  ; in case there's a machine-specific configuration
 
