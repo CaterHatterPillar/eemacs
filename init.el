@@ -10,7 +10,8 @@
                    flycheck
                    py-autopep8
                    rjsx-mode
-                   xref-js2))
+                   xref-js2
+                   stgit))
 (mapc #'(lambda (package)
           (unless (package-installed-p package)
             (package-install package)))
@@ -240,7 +241,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (prettier-js prettier conda flycheck elpy anaconda-mode))))
+    (stgit prettier-js prettier yafolding indium conda flycheck elpy anaconda-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
