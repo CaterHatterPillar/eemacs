@@ -15,8 +15,6 @@
             (package-install package)))
       packages)
 
-(setq load-path (cons "~/.emacs.d/elisp" load-path))
-
 (require 'miscfun)
 
 (require 'local nil t)  ; in case there's a machine-specific configuration
