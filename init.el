@@ -33,8 +33,8 @@
       '((:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name)) "%b"))))
 
+(menu-bar-mode -1)
 (when (display-graphic-p)
-  (menu-bar-mode -1)
   (toggle-scroll-bar -1)
   (tool-bar-mode -1))
 
