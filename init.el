@@ -27,7 +27,7 @@
                            (load-theme 'solarized t)
                            (set-frame-parameter nil 'background-mode 'dark)
                            (enable-theme 'solarized))))
-  (unless (or (version< emacs-version "24") (not (display-graphic-p)))
+  (unless (not (display-graphic-p))
       (funcall load-custom-theme)))
 
 (setq frame-title-format  ; Full filename in titlebar
