@@ -27,8 +27,7 @@
                            (load-theme 'solarized t)
                            (set-frame-parameter nil 'background-mode 'dark)
                            (enable-theme 'solarized))))
-  (unless (not (display-graphic-p))
-      (funcall load-custom-theme)))
+  (funcall load-custom-theme))
 
 (setq frame-title-format  ; Full filename in titlebar
       '((:eval (if (buffer-file-name)
