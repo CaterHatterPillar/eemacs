@@ -234,7 +234,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (stgit prettier-js prettier yafolding indium conda flycheck elpy anaconda-mode))))
+    (pylint stgit prettier-js prettier yafolding indium conda flycheck elpy anaconda-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
