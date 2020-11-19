@@ -78,7 +78,7 @@
 (setq scroll-step            1
       scroll-conservatively  10000)
 
-(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'text-mode-hook 'linum-mode)
 
 (unless (version< emacs-version "24")
   (defadvice forward-paragraph (after forward-paragraph-linum-update)
