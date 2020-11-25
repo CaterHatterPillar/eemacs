@@ -151,7 +151,11 @@
 
 (remove-hook 'elpy-modules 'elpy-module-highlight-indentation)
 
-(pyvenv-activate "~/anaconda3/envs/tensorflow")  ; TODO
+;; Use elpy to run tests, but use emacs-tdd to automatically run them
+(add-to-list 'load-path "~/.emacs.d/emacs-tdd")
+(require 'tdd)
+(add-hook 'python-mode-hook 'tdd-mode)
+(pyvenv-activate "/home/pcadmin/anaconda3/envs/mimer")
 
 ;; Set these to enable conda in the compilation environment
 ;; TODO: this fucks up some bash commands in Emacs, like find-name-dired
