@@ -121,14 +121,6 @@
 (add-hook 'c-mode-hook
           '(lambda () (define-key c-mode-map "\C-m" 'newline-and-indent)))
 
-(when (display-graphic-p)
-  (add-to-list 'compilation-finish-functions 'notify-compilation-complete))
-
-(defun notify-compilation-complete(buffer msg)
-  (if (string-match "^finished" msg)
-      (tooltip-show "\n Compilation Success \n ")
-    (tooltip-show "\n Compilation Failure \n ")))
-
 (setq compilation-scroll-output 'first-error)
 
 ;; Load stgit after loading a custom theme
