@@ -78,15 +78,8 @@
 (setq scroll-step            1
       scroll-conservatively  10000)
 
-(add-hook 'text-mode-hook 'linum-mode)
-
-(unless (version< emacs-version "24")
-  (defadvice forward-paragraph (after forward-paragraph-linum-update)
-    "Perform (linum-update-current) after jumping forward one
-     paragraph to ensure line numbers are being rendered
-     correctly."
-    (linum-update-current))
-  (ad-activate 'forward-paragraph))
+(when (version<= "26.0.50" emacs-version )
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 
 ;; Prevent trailing whitespace in modified lines
 (when (eq system-type 'gnu/linux)  ; no diff on windows
