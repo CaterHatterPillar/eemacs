@@ -94,10 +94,6 @@
 
   (add-hook 'before-save-hook 'delete-trailing-whitespace-at-modified-lines))
 
-;; Prefer vertical splits on my home system
-(setq split-height-threshold nil)
-(setq split-width-threshold 160)
-
 ;;; PROGRAMMING
 
 (require 'whitespace)
