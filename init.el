@@ -136,12 +136,6 @@
 (add-to-list 'load-path "~/.emacs.d/emacs-tdd")
 (require 'tdd)
 (add-hook 'python-mode-hook 'tdd-mode)
-(pyvenv-activate "/home/pcadmin/anaconda3/envs/mimer")
-
-;; Set these to enable conda in the compilation environment
-;; TODO: this fucks up some bash commands in Emacs, like find-name-dired
-;; (setq shell-file-name "bash")
-;; (setq shell-command-switch "-ic")
 
 (setq gud-pdb-command-name "python -m pdb")
 
@@ -219,7 +213,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (pylint stgit prettier-js prettier yafolding indium conda flycheck elpy anaconda-mode))))
+    (pylint stgit prettier-js prettier yafolding indium flycheck elpy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
