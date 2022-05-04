@@ -39,6 +39,11 @@
   :config
   (global-aggressive-indent-mode 1))
 
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
