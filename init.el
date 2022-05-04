@@ -43,3 +43,8 @@
   (setenv "WORKON_HOME" "~/.pyenv/versions")
   (setq pyvenv-workon "emacs")  ; fallback
   (pyvenv-tracking-mode 1))  ; use add-dir-local-variable to set 'pyenv-workon'
+
+(use-package lsp-mode
+  :ensure t
+  :hook
+  ((python-mode . lsp)))
