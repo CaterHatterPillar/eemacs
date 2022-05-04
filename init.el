@@ -76,6 +76,8 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
+
 ;; Prevent trailing whitespace in modified lines
 (when (eq system-type 'gnu/linux)  ; no diff on windows
   (require 'diff)
