@@ -17,3 +17,5 @@
 (when (display-graphic-p)
   (toggle-scroll-bar -1)
   (tool-bar-mode -1))
+
+(setq inhibit-startup-message t)
