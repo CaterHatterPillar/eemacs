@@ -34,6 +34,11 @@
 (use-package lsp-ui
   :ensure t)
 
+(use-package aggressive-indent
+  :ensure t
+  :config
+  (global-aggressive-indent-mode 1))
+
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
