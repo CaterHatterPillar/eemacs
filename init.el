@@ -34,3 +34,5 @@
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
 (setq x-stretch-cursor t)
+
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
