@@ -63,6 +63,8 @@
 (use-package beacon
   :ensure t
   :config
+  (setq beacon-blink-when-window-scrolls nil)
+  (setq beacon-blink-when-point-moves nil)
   (beacon-mode 1))
 
 (when (fboundp 'windmove-default-keybindings)
