@@ -19,25 +19,6 @@
 (use-package stgit
   :ensure t)
 
-(menu-bar-mode -1)
-(when (display-graphic-p)
-  (toggle-scroll-bar -1)
-  (tool-bar-mode -1))
-
-(setq inhibit-startup-message t)
-(setq ring-bell-function 'ignore)
-(setq use-dialog-box nil)
-(setq column-number-mode t)
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-(show-paren-mode 1)
-(blink-cursor-mode -1)
-(mouse-avoidance-mode 'jump)
-(setq x-stretch-cursor t)
-
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-
 (use-package pyvenv
   :ensure t
   :init
@@ -52,3 +33,21 @@
 
 (use-package lsp-ui
   :ensure t)
+
+(show-paren-mode 1)
+(blink-cursor-mode -1)
+(mouse-avoidance-mode 'jump)
+(menu-bar-mode -1)
+(when (display-graphic-p)
+  (toggle-scroll-bar -1)
+  (tool-bar-mode -1))
+
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+(setq inhibit-startup-message t)
+(setq ring-bell-function 'ignore)
+(setq use-dialog-box nil)
+(setq column-number-mode t)
+(setq x-stretch-cursor t)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
