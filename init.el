@@ -26,6 +26,7 @@
 
 (setq inhibit-startup-message t)
 (setq ring-bell-function 'ignore)
+(setq use-dialog-box nil)
 
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
