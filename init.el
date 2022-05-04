@@ -57,6 +57,9 @@
   :config
   (global-set-key (kbd "C-=") 'er/expand-region))
 
+(use-package restart-emacs
+  :ensure t)
+
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
