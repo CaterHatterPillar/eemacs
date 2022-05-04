@@ -27,6 +27,7 @@
 (setq inhibit-startup-message t)
 (setq ring-bell-function 'ignore)
 (setq use-dialog-box nil)
+(setq column-number-mode t)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
