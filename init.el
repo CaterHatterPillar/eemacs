@@ -21,7 +21,7 @@
 
 (use-package pyvenv
   :ensure t
-  :init
+  :config
   (setenv "WORKON_HOME" "~/.pyenv/versions")
   (setq pyvenv-workon "emacs")  ; fallback
   (pyvenv-tracking-mode 1))  ; use add-dir-local-variable to set 'pyenv-workon'
