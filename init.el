@@ -44,6 +44,9 @@
   :config
   (which-key-mode))
 
+(use-package undo-tree
+  :ensure t)
+
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
