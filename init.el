@@ -28,6 +28,8 @@
 (setq ring-bell-function 'ignore)
 (setq use-dialog-box nil)
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
 (setq x-stretch-cursor t)
