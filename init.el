@@ -16,6 +16,9 @@
 (use-package midnight
   :ensure t)
 
+(use-package stgit
+  :ensure t)
+
 (menu-bar-mode -1)
 (when (display-graphic-p)
   (toggle-scroll-bar -1)
