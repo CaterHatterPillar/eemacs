@@ -31,6 +31,7 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(show-paren-mode 1)
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
 (setq x-stretch-cursor t)
