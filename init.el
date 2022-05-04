@@ -52,6 +52,11 @@
   :config
   (zoom-mode))
 
+(use-package expand-region
+  :ensure t
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region))
+
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
