@@ -47,6 +47,11 @@
 (use-package undo-tree
   :ensure t)
 
+(use-package zoom
+  :ensure t
+  :config
+  (zoom-mode))
+
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
