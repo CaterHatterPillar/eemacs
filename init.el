@@ -36,3 +36,10 @@
 (setq x-stretch-cursor t)
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+(use-package pyvenv
+  :ensure t
+  :init
+  (setenv "WORKON_HOME" "~/.pyenv/versions")
+  (setq pyvenv-workon "emacs")  ; fallback
+  (pyvenv-tracking-mode 1))  ; use add-dir-local-variable to set 'pyenv-workon'
