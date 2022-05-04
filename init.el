@@ -12,3 +12,8 @@
   :ensure t
   :config
   (load-theme 'solarized-dark t))
+
+(menu-bar-mode -1)
+(when (display-graphic-p)
+  (toggle-scroll-bar -1)
+  (tool-bar-mode -1))
