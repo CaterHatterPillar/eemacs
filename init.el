@@ -48,3 +48,6 @@
   :ensure t
   :hook
   ((python-mode . lsp)))
+
+(use-package lsp-ui
+  :ensure t)
