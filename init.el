@@ -15,7 +15,7 @@
             (package-install package)))
       packages)
 
-(require 'miscfun)
+;; (require 'miscfun)
 
 (require 'local nil t)  ; in case there's a machine-specific configuration
 
@@ -113,12 +113,12 @@
 (setq compilation-scroll-output 'first-error)
 
 ;; Load stgit after loading a custom theme
-(add-to-list 'load-path "/usr/share/stgit/contrib")  ; TODO
 (require 'stgit)
 
 ;;; PYTHON
 
 (elpy-enable)
+(setq elpy-rpc-virtualenv-path "/home/enn/.pyenv/versions/elpy")
 
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
@@ -157,6 +157,10 @@
 
 (require 'prettier-js)
 (add-hook 'rjsx-mode-hook 'prettier-js-mode)
+
+;; Golang
+
+(add-hook 'before-save-hook 'gofmt-before-save)
 
 ;;; WINDOWS
 
@@ -202,9 +206,28 @@
 
 ;;; CANDIDATES
 
+;; Install and load `quelpa-use-package'.
+(package-install 'quelpa-use-package)
+(require 'quelpa-use-package)
+
+;; Install `plz' HTTP library (not on MELPA yet).
+(use-package plz
+  :quelpa (plz :fetcher github :repo "alphapapa/plz.el"))
+
+;; Install Ement.
+(use-package ement
+  :quelpa (ement :fetcher github :repo "alphapapa/ement.el"))
+
+(recentf-mode 1)
+(save-place-mode 1)
+(setq use-dialog-box nil)
+
 (setq mac-option-modifier nil
       mac-command-modifier 'meta
       x-select-enable-clipboard t)
+
+(exec-path-from-shell-initialize)
+(add-hook 'python-mode-hook (lambda () (pyenv-mode)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -213,7 +236,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (pylint stgit prettier-js prettier yafolding indium flycheck elpy))))
+    (lsp-ui lsp-mode ement ts plz quelpa-use-package yaml-mode emojify go-mode dumb-jump elpygen kubernetes exec-path-from-shell pyenv-mode pylint stgit prettier-js prettier yafolding indium flycheck elpy)))
+ '(pyenv-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
