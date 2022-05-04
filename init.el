@@ -47,6 +47,9 @@
 (use-package undo-tree
   :ensure t)
 
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
