@@ -19,3 +19,7 @@
   (tool-bar-mode -1))
 
 (setq inhibit-startup-message t)
+
+(blink-cursor-mode -1)
+(mouse-avoidance-mode 'jump)
+(setq x-stretch-cursor t)
