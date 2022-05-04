@@ -67,6 +67,14 @@
   (setq beacon-blink-when-point-moves nil)
   (beacon-mode 1))
 
+(use-package helm
+  :ensure t
+  :bind (("M-x" . helm-M-x)
+	 ("C-x C-f" . helm-find-files)
+	 ("C-x C-b" . helm-mini))
+  :config
+  (helm-mode 1))
+
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
@@ -90,8 +98,6 @@
 (load custom-file 'noerror)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-
-(global-set-key (kbd "C-x C-b") 'buffer-menu)
 
 ;; Prevent trailing whitespace in modified lines
 (when (eq system-type 'gnu/linux)  ; no diff on windows
