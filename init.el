@@ -25,6 +25,7 @@
   (tool-bar-mode -1))
 
 (setq inhibit-startup-message t)
+(setq ring-bell-function 'ignore)
 
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
