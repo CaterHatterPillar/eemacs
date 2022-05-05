@@ -71,10 +71,7 @@
   :ensure t
   :bind (("M-x" . helm-M-x)
 	 ("C-x C-f" . helm-find-files)
-	 ("C-x C-b" . helm-mini)
-	 ("<tab>" . helm-execute-persistent-action)
-	 ("C-i" . helm-execute-persistent-action)
-	 ("C-z" . helm-select-action))
+	 ("C-x C-b" . helm-mini))
   :config
   (helm-mode 1)
   (setq helm-split-window-in-side-p t))
