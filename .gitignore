@@ -1,16 +1,8 @@
 local.el
-custom.el
 
 bookmarks
 package-lock.json
 
-/history
-/semanticdb
-/node_modules
+/var
+/etc
 /elpa
-
-*.elc
-*~
-.\#*
-\#*#
-session.*

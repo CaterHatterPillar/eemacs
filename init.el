@@ -8,6 +8,17 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
+(use-package no-littering
+  :ensure t
+  :config
+  (setq backup-directory-alist
+	`((".*" . ,(no-littering-expand-var-file-name "backup/"))))
+  (setq auto-save-file-name-transforms
+	`((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+  (setq recentf-save-file (no-littering-expand-var-file-name "recentf"))
+  (setq custom-file (no-littering-expand-etc-file-name "custom.el"))
+  (load custom-file 'noerror))
+
 (use-package solarized-theme
   :ensure t
   :config
@@ -94,9 +105,6 @@
 (setq use-dialog-box nil)
 (setq column-number-mode t)
 (setq x-stretch-cursor t)
-
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file 'noerror)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
