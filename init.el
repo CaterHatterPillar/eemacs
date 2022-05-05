@@ -105,6 +105,14 @@
 (setq use-dialog-box nil)
 (setq column-number-mode t)
 (setq x-stretch-cursor t)
+(setq make-backup-files t
+      backup-by-copying t
+      version-control t
+      delete-old-versions t
+      delete-by-moving-to-trash t
+      kept-old-versions 6
+      kept-new-versions 9
+      auto-save-default t)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
