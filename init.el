@@ -95,7 +95,7 @@
 (setq column-number-mode t)
 (setq x-stretch-cursor t)
 
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
