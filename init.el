@@ -73,7 +73,8 @@
 	 ("C-x C-f" . helm-find-files)
 	 ("C-x C-b" . helm-mini))
   :config
-  (helm-mode 1))
+  (helm-mode 1)
+  (setq helm-split-window-in-side-p t))
 
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
