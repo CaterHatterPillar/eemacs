@@ -94,9 +94,8 @@
 (blink-cursor-mode -1)
 (mouse-avoidance-mode 'jump)
 (menu-bar-mode -1)
-(when (display-graphic-p)
-  (toggle-scroll-bar -1)
-  (tool-bar-mode -1))
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
