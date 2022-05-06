@@ -96,6 +96,7 @@
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+(global-auto-revert-mode)
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
