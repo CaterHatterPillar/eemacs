@@ -30,6 +30,9 @@
 (use-package stgit
   :ensure t)
 
+(use-package magit
+  :ensure t)
+
 (use-package pyvenv
   :ensure t
   :config
