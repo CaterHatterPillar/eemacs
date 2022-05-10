@@ -55,7 +55,7 @@
   :config
   (which-key-mode))
 
-(use-package undo-tree
+(use-package undo-tree  ; TODO: consider vundo
   :ensure t)
 
 (use-package zoom
