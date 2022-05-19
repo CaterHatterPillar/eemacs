@@ -81,6 +81,11 @@
   (setq beacon-blink-when-point-moves nil)
   (beacon-mode 1))
 
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode))
+
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
