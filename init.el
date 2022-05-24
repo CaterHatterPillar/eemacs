@@ -105,6 +105,9 @@
   (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
 
+(use-package rg
+  :ensure t)
+
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
