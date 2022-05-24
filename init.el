@@ -147,3 +147,5 @@
   (add-hook 'before-save-hook 'delete-trailing-whitespace-at-modified-lines))
 
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
+(global-set-key (kbd "C-.") 'next-error)
+(global-set-key (kbd "C-,") 'previous-error)
