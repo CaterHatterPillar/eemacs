@@ -81,6 +81,9 @@
   (setq beacon-blink-when-point-moves nil)
   (beacon-mode 1))
 
+(use-package counsel
+  :ensure t)
+
 (use-package ivy
   :ensure t
   :config
