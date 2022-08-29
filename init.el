@@ -48,6 +48,11 @@
 (use-package lsp-ui
   :ensure t)
 
+(use-package python-black
+  :ensure t
+  :after python
+  :hook (python-mode . python-black-on-save-mode-enable-dwim))
+
 (use-package aggressive-indent
   :ensure t
   :config
