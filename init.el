@@ -51,7 +51,7 @@
 (use-package python-black
   :ensure t
   :after python
-  :hook (python-mode . python-black-on-save-mode-enable-dwim))
+  :hook (python-mode . python-black-on-save-mode))
 
 (use-package aggressive-indent
   :ensure t
