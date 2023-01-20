@@ -37,16 +37,31 @@
   :ensure t
   :config
   (setenv "WORKON_HOME" "~/.pyenv/versions")
-  (setq pyvenv-workon "emacs")  ; fallback
-  (pyvenv-tracking-mode 1))  ; use add-dir-local-variable to set 'pyenv-workon'
+  ;; (setq pyvenv-workon "emacs")  ; fallback, doesn't work with lsp for whatever reason
+  (setq pyvenv-mode-line-indicator '(pyvenv-virtual-env-name ("[venv:" pyvenv-virtual-env-name "] ")))
+  (pyvenv-tracking-mode 1)  ; use add-dir-local-variable to set 'pyenv-workon'
+  (pyvenv-mode t))
 
 (use-package lsp-mode
   :ensure t
+  :after pyvenv
   :hook
-  ((python-mode . lsp)))
+  ((python-mode . lsp))
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
 
 (use-package lsp-ui
-  :ensure t)
+  :ensure t
+  :hook
+  (lsp-mode . lsp-ui-mode))
+
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp))))  ; or lsp-deferred
 
 (use-package python-black
   :ensure t
