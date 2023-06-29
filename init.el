@@ -177,3 +177,6 @@
 (add-hook 'org-after-todo-statistics-hook #'org-summary-todo)
 
 (setq split-height-threshold 999)
+
+(use-package python-mode  ; built-in doesn't support 3.10 match cases
+  :ensure t)
