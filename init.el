@@ -180,3 +180,11 @@
 
 (use-package python-mode  ; built-in doesn't support 3.10 match cases
   :ensure t)
+
+(use-package protobuf-mode
+  :ensure t
+  :init
+  (defconst polarium-protobuf-style
+    '((c-basic-offset . 8)))
+  (add-hook 'protobuf-mode-hook
+	    (lambda () (c-add-style "polarium-protobuf-style" polarium-protobuf-style t))))
