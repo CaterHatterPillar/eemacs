@@ -42,6 +42,7 @@
   (pyvenv-tracking-mode 1)  ; use add-dir-local-variable to set 'pyenv-workon'
   (pyvenv-mode t))
 
+;; TODO: Emacs 29 comes with eglot. Consider using eglot instead of lsp-mode
 (use-package lsp-mode
   :ensure t
   :after pyvenv
