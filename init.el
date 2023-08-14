@@ -189,8 +189,3 @@
     '((c-basic-offset . 8)))
   (add-hook 'protobuf-mode-hook
 	    (lambda () (c-add-style "polarium-protobuf-style" polarium-protobuf-style t))))
-
-(use-package yaml-mode
-  :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
